@@ -971,7 +971,7 @@ footer .btn-gamp input {
 	font-size: 12px;
 	text-transform: uppercase;
 	letter-spacing: 3px;
-	color: black;	
+	color: #272727;	
 	width: 180px;
 	height: 60px;
 	text-align: center;

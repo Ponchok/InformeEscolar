@@ -52,10 +52,10 @@
 			<div class="col-md-10 col-md-offset-1">
 				<form class="form-inline" action="/AdminControler" method="get">
 					<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
-						<input type="text" id="accesID" placeholder="Ingresa tu Usuario"></input>
+						<input id="accesID" placeholder="Ingresa tu Usuario"></input>
 					</div>
 					<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
-						<input type="text" id="passID" placeholder="Ingresa tu Contraseña"></input>
+						<input id="passID" placeholder="Ingresa tu Contraseña"></input>
 					</div>
 					<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
 
@@ -63,7 +63,7 @@
 							<button type="Acceso" name="Acceso" id="Acceso"
 								class="btn btn-primary btn-lg" required="required">Acceso</button>
 						</div>
-					</div>
+						</div>
 				</form>
 			</div>
 		</div>
@@ -113,6 +113,7 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/wow.min.js"></script>
+	<script src="js/check_user.js"></script>
 	<script>
 		wow = new WOW({
 

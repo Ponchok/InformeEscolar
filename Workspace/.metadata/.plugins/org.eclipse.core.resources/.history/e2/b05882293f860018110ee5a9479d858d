@@ -63,7 +63,6 @@
 							<button type="Acceso" name="Acceso" id="Acceso"
 								class="btn btn-primary btn-lg" required="required">Acceso</button>
 						</div>
-					</div>
 				</form>
 			</div>
 		</div>
@@ -113,6 +112,7 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/wow.min.js"></script>
+	<script src="js/check_user.js"></script>
 	<script>
 		wow = new WOW({
 
