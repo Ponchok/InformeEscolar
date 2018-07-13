@@ -1,0 +1,4 @@
+activeuserprofiles=PonchoAdmin;Team
+eclipse.preferences.version=1
+org.eclipse.rse.systemtype.local.systemType.defaultUserId=ponchoadmin
+useridperkey=PonchoAdmin.Local\=ponchoadmin;
