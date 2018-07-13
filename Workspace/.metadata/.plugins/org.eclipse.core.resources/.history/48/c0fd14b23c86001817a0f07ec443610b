@@ -59,7 +59,7 @@
 				<form class="form-inline">
 					<div class="form-group">
 						<button type="Acceso" name="Acceso" id="Acceso" class="btn btn-primary btn-lg"
-							required="required">Accesoo</button>
+							required="required">Acceso</button>
 					</div>
 				</form>
 			</div>
