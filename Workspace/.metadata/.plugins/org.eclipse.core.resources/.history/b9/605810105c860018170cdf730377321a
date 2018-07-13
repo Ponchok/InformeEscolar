@@ -1,0 +1,28 @@
+package com.abarraotes.dao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.abarrotes.utilidades.ConexionBD;
+
+public class AccesoAdministrativo {
+	
+	public boolean esUsuarioAdmin(String usuario, String contraseña){
+		try {
+			
+			Connection conn = ConexionBD.conectarBD();
+			Statement stm = conn.createStatement();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return false;
+	}
+
+}

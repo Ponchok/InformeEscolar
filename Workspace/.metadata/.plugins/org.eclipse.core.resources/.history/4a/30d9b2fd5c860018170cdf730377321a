@@ -1,0 +1,35 @@
+package com.abarraotes.dao;
+
+import java.sql.*;
+import com.abarrotes.utilidades.ConexionBD;
+import com.abarrotes.utilidades.Constantes;
+
+public class AccesoAdministrativo {
+	
+	public boolean esUsuarioAdmin(String usuario, String contraseña){
+		
+			
+			try {
+				Connection conn = ConexionBD.conectarBD();
+				Statement stm = conn.createStatement();
+				String query = Constantes.DAO_TABLA_ACCESO;
+				ResultSet rs = stm.executeQuery(query);
+				
+				
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		
+		
+		
+		
+		return false;
+	}
+
+}

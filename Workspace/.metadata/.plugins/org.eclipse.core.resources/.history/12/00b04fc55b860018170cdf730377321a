@@ -1,0 +1,19 @@
+package com.abarraotes.dao;
+
+import java.sql.Connection;
+import java.sql.Statement;
+
+import com.abarrotes.utilidades.ConexionBD;
+
+public class AccesoAdministrativo {
+	
+	public boolean esUsuarioAdmin(String usuario, String contraseña){
+		Connection conn = ConexionBD.conectarBD();
+		Statement stm = conn.createStatement();
+		
+		
+		
+		return false;
+	}
+
+}

@@ -1,14 +1,12 @@
 package com.abarrotes.controlador;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
+import com.abarraotes.dao.AccesoAdministrativo;
 
 /**
  * Servlet implementation class AdminControler
@@ -16,38 +14,41 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/AdminControler")
 public class AdminControler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AdminControler() {
-        super();
-        System.out.println("SERVLET");
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public AdminControler() {
+		super();
+		System.out.println("SERVLET");
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String usuario = request.getParameter("accesID");
 		String password = request.getParameter("passID");
-		System.out.println("EXITO: " + usuario + " > " + password);
+		System.out.println("usuario: " + usuario + " *** " + "password: " + password);
+		AccesoAdministrativo admin = new AccesoAdministrativo();
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("Name saved in Request Object: " + usuario + "<br>");
-		out.println("Name saved in Request Object: " + password + "<br>");
-		out.println("</html>");
-		response.sendRedirect("about.html");
-		
+		if (admin.esUsuarioAdmin(usuario, password))
+			response.sendRedirect("about.html");
+
+		else
+			response.sendRedirect("index.html");
+
 	}
 
 }
