@@ -22,7 +22,7 @@ public class ConexionBD {
 	
 	/**
 	 * Metodo para entablar la conexion con la base de datos.
-	 * 
+	 * @return 
 	 */
 	public static void conectarBD() {
 		try {

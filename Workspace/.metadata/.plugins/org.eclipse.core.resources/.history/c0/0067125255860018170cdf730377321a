@@ -6,6 +6,4 @@ public class Constantes {
 	public static final String USUARIO_MYSQL = "root";
 	public static final String CONTRASENA_MYSQL = "";
 	public static final String MYSQL_DRIVER = "com.mysql.jdbc.Driver";
-	
-	
 }

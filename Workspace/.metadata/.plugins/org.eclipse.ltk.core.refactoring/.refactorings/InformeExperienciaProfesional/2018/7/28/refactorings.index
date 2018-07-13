@@ -13,3 +13,5 @@
 1531454391877	Rename field 'DB_URL'
 1531454507226	Rename field 'USUARIO'
 1531454522255	Rename field 'CONTRASEÑA'
+1531455751929	Rename method 'realizarConexionBD'
+1531455772353	Rename method 'cerrarConexion'

@@ -8,21 +8,17 @@ public class ConexionBD {
 	static Statement stmt = null;
 	static ResultSet rs = null;
 
-	
 	public static void main(String[] args) {
 
-		
-		ConexionBD.conectarBD();
-		ConexionBD.muestraTablaAcceso();
-		ConexionBD.desconectarBD();
+		ConexionBD cbd = new ConexionBD();
+		cbd.conectarBD();
+		cbd.muestraTablaAcceso();
+		cbd.desconectarBD();
 	}
 
-	
-	
-	
 	/**
 	 * Metodo para entablar la conexion con la base de datos.
-	 * 
+	 * @return 
 	 */
 	public static void conectarBD() {
 		try {
@@ -36,6 +32,8 @@ public class ConexionBD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		
 	}
 
 	/**
