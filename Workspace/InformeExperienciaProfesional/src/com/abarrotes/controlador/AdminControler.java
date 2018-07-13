@@ -45,6 +45,7 @@ public class AdminControler extends HttpServlet {
 		out.println("Name saved in Request Object: " + usuario + "<br>");
 		out.println("Name saved in Request Object: " + password + "<br>");
 		out.println("</html>");
+		response.sendRedirect("about.html");
 	}
 
 }
