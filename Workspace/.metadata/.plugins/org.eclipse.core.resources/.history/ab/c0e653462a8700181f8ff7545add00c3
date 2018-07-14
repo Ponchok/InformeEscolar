@@ -1,0 +1,97 @@
+package com.abarraotes.dao;
+
+import java.sql.*;
+import com.abarrotes.utilidades.ConexionBD;
+import com.abarrotes.utilidades.Constantes;
+
+/**
+ * Esta clase es utilizada permitir el acceso a usuarions Administradores y
+ * Empleados en base a lso registros dados de alta en la base de datos. BD
+ * Tablas; "acceso" 1.- Autenticacion de Usuarios administrativos
+ * 
+ *
+ */
+
+public class AccesoSistema {
+
+	Connection conn = null;
+	Statement stm = null;
+	ResultSet rs = null;
+
+	/**
+	 * Metodo Data Acces Object para obtener datos de la tabla "Acceso" y
+	 * autenticar el acceso a usuarios administradores.
+	 * 
+	 * @param usuario
+	 * @param contraseña
+	 * @return boolean | Es usuario Administrador?
+	 */
+	public boolean esUsuarioAdmin(String usuario, String contraseña) {
+		boolean esAdmin = false;
+
+		try {
+			conn = ConexionBD.conectarBD();
+			stm = conn.createStatement();
+			String query = Constantes.DAO_TABLA_ACCESO;
+			rs = stm.executeQuery(query);
+
+			while (rs.next()) {
+				if (usuario.equals(rs.getString("empleado")) && contraseña.equals(rs.getString("contraseña"))) {
+					esAdmin = true;
+					System.out.println("Usuario es Administrador identificado...");
+					break;
+				} else
+					System.out.println("Usuario NO es Administrador ...");
+				break;
+			}
+
+			conn.close();
+			stm.close();
+			rs.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return esAdmin;
+	}
+
+	public boolean esUsuarioEmpleado(String usuario, String contraseña) {
+		boolean esEmpleado = false;
+
+		try {
+			conn = ConexionBD.conectarBD();
+			stm = conn.createStatement();
+			String query = Constantes.DAO_TABLA_EMPLEADOS;
+			rs = stm.executeQuery(query);
+
+			while (rs.next()) {
+				if (usuario.equals(rs.getString("empleado")) && contraseña.equals(rs.getString("contraseña"))) {
+					esEmpleado = true;
+					System.out.println("Usuario es Empleado identificado...");
+					break;
+				} else
+					System.out.println("Usuario NO es Empleado ...");
+				break;
+			}
+
+			conn.close();
+			stm.close();
+			rs.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return esEmpleado;
+
+	}
+
+	public static void main(String[] args) {
+		AccesoSistema ad = new AccesoSistema();
+		ad.esUsuarioAdmin("admin", "ual1234");
+	}
+
+}

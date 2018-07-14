@@ -1,0 +1,75 @@
+package com.abarraotes.dao;
+
+import java.sql.*;
+import com.abarrotes.utilidades.ConexionBD;
+import com.abarrotes.utilidades.Constantes;
+
+/**
+ * Esta clase es utilizada permitir el acceso a usuarions Administradores y
+ * Empleados en base a lso registros dados de alta en la base de datos. BD
+ * Tablas; "acceso" 1.- Autenticacion de Usuarios administrativos
+ * 
+ *
+ */
+
+public class AccesoSistema {
+
+	private Connection conn = null;
+	private Statement stm = null;
+	private ResultSet rs = null;
+	
+	private boolean esUsuarioRegistrado = false;
+	private boolean esUsuarioAdmin = false;
+	
+	public AccesoSistema() {
+		
+		
+	}
+	
+	
+	
+	public boolean esUsuarioRegistrado(String usuario, String contraseña) {
+		boolean esAdmin = false;
+
+		try {
+			conn = ConexionBD.conectarBD();
+			stm = conn.createStatement();
+			String query = Constantes.DAO_TABLA_ACCESO;
+			rs = stm.executeQuery(query);
+
+			while (rs.next()) {
+				if (usuario.equals(rs.getString("empleado")) && contraseña.equals(rs.getString("contraseña"))) {
+					esUsuarioRegistrado = true;
+					System.out.println("Usuario identificado en base de datos...");
+					if ("SI".equals(rs.getString("esAdmin"))){
+						esUsuarioAdmin = true;
+						System.out.println("Usuario es Administrador en base de datos...");
+					}
+					
+					break;
+				} else
+					System.out.println("Usuario NO identificado en base de datos...");
+				break;
+			}
+
+			conn.close();
+			stm.close();
+			rs.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return esAdmin;
+	}
+
+	
+	
+
+	public static void main(String[] args) {
+		AccesoSistema ad = new AccesoSistema();
+		ad.esUsuarioAdmin("admin", "ual1234");
+	}
+
+}
