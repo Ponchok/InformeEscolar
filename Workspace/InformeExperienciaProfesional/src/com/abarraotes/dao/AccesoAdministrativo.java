@@ -5,6 +5,16 @@ import java.sql.*;
 import com.abarrotes.utilidades.ConexionBD;
 import com.abarrotes.utilidades.Constantes;
 
+
+
+/**
+ * Esta clase es utilizada para referenciar y ejecutar cambios relacionados con la 
+ * administracion.
+ * 1.- Autenticacion de Usuarios administrativos
+ * 
+ *
+ */
+
 public class AccesoAdministrativo  {
 
 
