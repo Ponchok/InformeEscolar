@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<%@page import="com.abarrotes.utilidades.Constantes"%>
+<%@page import="com.abarrotes.utilidades.AccesoBaseDatos"%>
+<%@page import="com.abarraotes.dao.AccesoSistema"%>
+<%@page import="java.sql.*"%>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -19,51 +24,112 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+<style type="text/css">
+tbody {
+	display: block;
+}
+
+tbody {
+	height: 300px; /* Just for the demo          */
+	overflow-y: auto; /* Trigger vertical scroll    */
+	overflow-x: hidden; /* Hide the horizontal scroll */
+	text-align: left;
+    padding: 8px;
+}
+</style>
+
+<script type="text/javascript">
+
+function muestra() {
+		document.getElementById("ejemplo").style.display =  "block"
+		
+	}
+
+</script>
+
 </head>
 
 
 <body>
 	<header id="header">
-        <nav class="navbar navbar-default navbar-static-top" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                   <div class="navbar-brand">
+		<nav class="navbar navbar-default navbar-static-top" role="banner">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<div class="navbar-brand">
 						<a href="index.html"><h1>Super Abarrotes Admin Software</h1></a>
 					</div>
-                </div>				
-                <div class="navbar-collapse collapse">							
+				</div>
+				<div class="navbar-collapse collapse">
 					<div class="menu">
 						<ul class="nav nav-tabs" role="tablist">
 							<li role="presentation"><a href="index.html" class="active">Soporte</a></li>
 							<li role="presentation"><a href="index.html">Información</a></li>
-							<li role="presentation"><a href="index.html">Salir</a></li>					
+							<li role="presentation"><a href="index.html">Salir</a></li>
 						</ul>
 					</div>
-				</div>		
-            </div><!--/.container-->
-        </nav><!--/nav-->		
-    </header><!--/header-->	
+				</div>
+			</div>
+			<!--/.container-->
+		</nav>
+		<!--/nav-->
+	</header>
+	<!--/header-->
 
+<button type="button" onclick="muestra()">HOLA</button>
 
-	
-	<div class="text-center">
-		<h2>VENTAS</h2>
+<!-- Ejemplo de muestra de Tabla articulos -->
+	<div class="text-center" id="ejemplo" style="display: none">
+		<table align="center" cellpadding="5" cellspacing="5" border="1">
+			<tr bgcolor="#A52A2A">
+				<td><b>idProducto</b></td>
+				<td><b>nombre</b></td>
+				<td><b>descripcion</b></td>
+				<td><b>costo</b></td>
+			</tr>
+
+		<%
+		try{	
+		 Connection conn = null;
+		 Statement stm = null;
+		 ResultSet rs = null;
 		
-		<select>
-			<option>hola</option>
-			<option>hola1</option>
-			<option>hola2</option>
+		 AccesoBaseDatos acceso = new AccesoBaseDatos();
+		 conn = acceso.obtenerConexion();
+		 stm = conn.createStatement();
+		 String query = Constantes.DAO_TABLA_ARTICULOS;
+		 rs = stm.executeQuery(query);
 		
-		</select>
-		
+		 while(rs.next()){
+		%>
+			<tr bgcolor="#DEB887">
+
+				<td><%=rs.getString("idProducto") %></td>
+				<td><%=rs.getString("nombre") %></td>
+				<td><%=rs.getString("descripcion") %></td>
+				<td><%=rs.getString("costo") %></td>
+			</tr>
+
+			<% 
+		}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+%>
+		</table>
 	</div>
-	
+
+
+
+
+
 
 
 
@@ -111,9 +177,9 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script>
-			wow = new WOW({
+		wow = new WOW({
 
-			}).init();
-		</script>
+		}).init();
+	</script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+package com.abarrotes.utilidades;
+
+import java.sql.*;
+
+public abstract class ConexionBD {
+
+	private Connection conn = null;
+	protected Statement stm = null;
+	protected ResultSet rs = null;
+	protected boolean esUsuarioRegistrado = false;
+	protected boolean esUsuarioAdmin = false;
+	
+	
+	/**
+	 * Metodo para entablar la conexion con la base de datos.
+	 * 
+	 * @throws ClassNotFoundException,
+	 *             SQLException
+	 * 
+	 */
+	public static Connection conectarBD() {
+		Connection conn = null;
+
+		try {
+			Class.forName(Constantes.MYSQL_DRIVER);
+			System.out.println("Conectando a base de datos...");
+			conn = DriverManager.getConnection(Constantes.CONEXION_BD, Constantes.USUARIO_MYSQL,
+					Constantes.CONTRASENA_MYSQL);
+		} catch (ClassNotFoundException e) {
+            System.out.println("ERROR: " + e.getMessage());	
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("ERROR: " + e.getMessage());
+			e.printStackTrace();
+		}
+
+		System.out.println("Conexion establecida...");
+		return conn;
+
+	}
+
+}
