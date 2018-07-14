@@ -3,3 +3,24 @@
 1531364837084	Delete elements
 1531367783938	Delete element
 1531372102557	Delete element
+1531445935113	Delete element
+1531451836909	Move 'index.html' to 'WebContent'
+1531452107029	Move 'css' to 'WebContent'
+1531452137886	Move 'fonts' to 'WebContent'
+1531452140995	Move 'img' to 'WebContent'
+1531452144175	Move 'js' to 'WebContent'
+1531452547905	Move 'about.html' to 'WebContent'
+1531454391877	Rename field 'DB_URL'
+1531454507226	Rename field 'USUARIO'
+1531454522255	Rename field 'CONTRASEÑA'
+1531455751929	Rename method 'realizarConexionBD'
+1531455772353	Rename method 'cerrarConexion'
+1531465116883	Copy source folder
+1531538474822	Delete elements
+1531538643057	Delete element
+1531538827194	Rename resource 'services.html'
+1531541187969	Delete elements
+1531541198019	Delete elements
+1531543332446	Rename resource 'gallery.html'
+1531543535601	Copy file
+1531547156327	Rename type 'AccesoAdministrativo'

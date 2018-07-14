@@ -1,0 +1,75 @@
+package com.abarrotes.utilidades;
+
+import java.sql.*;
+
+public class ConexionBD {
+
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+
+	public static void main(String[] args) {
+
+		ConexionBD cbd = new ConexionBD();
+		cbd.realizarConexionBD();
+		cbd.muestraTablaAcceso(conn);
+		cbd.cerrarConexion();
+	}
+
+	public Connection realizarConexionBD() {
+		try {
+			Class.forName(Constantes.MYSQL_DRIVER);
+			System.out.println("Connecting to database...");
+			conn = DriverManager.getConnection(Constantes.CONEXION_BD, Constantes.USUARIO_MYSQL, Constantes.CONTRASENA_MYSQL);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return conn;
+	}
+
+	public void cerrarConexion() {
+		try {
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void muestraTablaAcceso(Connection conn) {
+
+		try {
+			System.out.println("Creating statement...");
+			stmt = conn.createStatement();
+			String sql;
+			sql = "select * from acceso;";
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				// Retrieve by column name
+				int id = rs.getInt("idEmpleado");
+				String nombre = rs.getString("empleado");
+				String contraseña = rs.getString("contraseña");
+
+				// Display values
+				System.out.print("idEmpleado: " + id);
+				System.out.print(", nombre: " + nombre);
+				System.out.print(", contraseña: " + contraseña + "\n");
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
