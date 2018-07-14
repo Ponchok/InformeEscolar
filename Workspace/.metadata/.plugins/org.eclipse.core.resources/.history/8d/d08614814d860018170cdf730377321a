@@ -1,9 +1,0 @@
-package com.abarrotes.utilidades;
-
-import java.sql.*;
-
-public class ConexionBD {
-	
-	
-
-}
