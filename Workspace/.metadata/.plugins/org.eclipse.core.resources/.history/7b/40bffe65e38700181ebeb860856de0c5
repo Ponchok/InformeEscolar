@@ -52,6 +52,10 @@ td {
 
 <script type="text/javascript">
 
+function muestra() {
+		document.getElementById("ejemplo").style.display =  "block"
+		
+	}
 
 /*
 var table = document.getElementsByTagName("table")[0];
@@ -110,10 +114,15 @@ tbody.onclick = function (e) {
 	</header>
 	<!--/header-->
 
+	<button type="button" onclick="muestra()">HOLA</button>
+
+
+
+
 
 
 	<!-- Ejemplo de muestra de Tabla articulos -->
-	<div class="text-center">
+	<div class="text-center" style="display: none">
 		<table align="center" cellpadding="5" cellspacing="5" border="1" >
 			<tr bgcolor="#A52A2A">
 				<td><b>idProducto</b></td>

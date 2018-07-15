@@ -35,16 +35,44 @@ tbody {
 	overflow-y: auto; /* Trigger vertical scroll    */
 	overflow-x: hidden; /* Hide the horizontal scroll */
 	text-align: left;
-    padding: 8px;
+	padding: 8px;
+}
+
+td {
+	border: 1px #DDD solid;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.selected {
+	background-color: brown;
+	color: #FFF;
 }
 </style>
 
 <script type="text/javascript">
 
-function muestra() {
-		document.getElementById("ejemplo").style.display =  "block"
-		
-	}
+
+/*
+var table = document.getElementsByTagName("table")[0];
+var tbody = table.getElementsByTagName("tbody")[0];
+tbody.onclick = function (e) {
+    e = e || window.event;
+    var data = [];
+    var target = e.srcElement || e.target;
+    while (target && target.nodeName !== "TR") {
+        target = target.parentNode;
+    }
+    if (target) {
+        var cells = target.getElementsByTagName("td");
+        for (var i = 0; i < cells.length; i++) {
+            data.push(cells[i].innerHTML);
+        }
+    }
+    alert(data);
+};
+ */
+
 
 </script>
 
@@ -82,11 +110,11 @@ function muestra() {
 	</header>
 	<!--/header-->
 
-<button type="button" onclick="muestra()">HOLA</button>
 
-<!-- Ejemplo de muestra de Tabla articulos -->
-	<div class="text-center" id="ejemplo" style="display: none">
-		<table align="center" cellpadding="5" cellspacing="5" border="1">
+
+	<!-- Ejemplo de muestra de Tabla articulos -->
+	<div class="text-center">
+		<table align="center" cellpadding="5" cellspacing="5" border="1" >
 			<tr bgcolor="#A52A2A">
 				<td><b>idProducto</b></td>
 				<td><b>nombre</b></td>
@@ -94,7 +122,7 @@ function muestra() {
 				<td><b>costo</b></td>
 			</tr>
 
-		<%
+	   <%
 		try{	
 		 Connection conn = null;
 		 Statement stm = null;
@@ -116,13 +144,15 @@ function muestra() {
 				<td><%=rs.getString("costo") %></td>
 			</tr>
 
-			<% 
+          <% 
 		}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-%>
+          %>
+
+
 		</table>
 	</div>
 

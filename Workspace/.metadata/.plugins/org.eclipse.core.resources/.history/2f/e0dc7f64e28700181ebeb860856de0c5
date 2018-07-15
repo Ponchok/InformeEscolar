@@ -52,8 +52,12 @@ td {
 
 <script type="text/javascript">
 
+function muestra() {
+		document.getElementById("ejemplo").style.display =  "block"
+		
+	}
 
-/*
+
 var table = document.getElementsByTagName("table")[0];
 var tbody = table.getElementsByTagName("tbody")[0];
 tbody.onclick = function (e) {
@@ -71,7 +75,7 @@ tbody.onclick = function (e) {
     }
     alert(data);
 };
- */
+ 
 
 
 </script>
@@ -110,11 +114,16 @@ tbody.onclick = function (e) {
 	</header>
 	<!--/header-->
 
+	<button type="button" onclick="muestra()">HOLA</button>
+
+
+
+
 
 
 	<!-- Ejemplo de muestra de Tabla articulos -->
-	<div class="text-center">
-		<table align="center" cellpadding="5" cellspacing="5" border="1" >
+	<div class="text-center" id="ejemplo" style="display: none">
+		<table align="center" cellpadding="5" cellspacing="5" border="1">
 			<tr bgcolor="#A52A2A">
 				<td><b>idProducto</b></td>
 				<td><b>nombre</b></td>
@@ -122,7 +131,7 @@ tbody.onclick = function (e) {
 				<td><b>costo</b></td>
 			</tr>
 
-	   <%
+			<%
 		try{	
 		 Connection conn = null;
 		 Statement stm = null;
@@ -144,15 +153,13 @@ tbody.onclick = function (e) {
 				<td><%=rs.getString("costo") %></td>
 			</tr>
 
-          <% 
+			<% 
 		}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-          %>
-
-
+%>
 		</table>
 	</div>
 
