@@ -27,3 +27,9 @@
 0:0:0:0:0:0:0:1 - - [15/Jul/2018:01:02:15 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 32258
 0:0:0:0:0:0:0:1 - - [15/Jul/2018:01:03:51 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 32258
 0:0:0:0:0:0:0:1 - - [15/Jul/2018:01:16:19 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 32305
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:01:18:16 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 31021
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:01:19:06 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 31013
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:01:23:10 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 24862
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:01:24:09 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 24953
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:01:24:24 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 24953
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:01:28:02 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 24857

@@ -56,11 +56,11 @@ td {
 
 
 function seleccionar () {
-	var seleccionados = document.getElementsByClassName("seleccion");
+	var seleccionados = document.getElementsByName("seleccion");
 	var seleccion= "";
 	for (i = 0; i < 50; i++ ){
 		if (seleccionados[i].checked == true){
-			seleccion += seleccionados[i].value + " - ";  
+			seleccion += seleccionados[i].value;  
 		}
 	}
 	alert(seleccion);
@@ -114,7 +114,6 @@ function seleccionar () {
 				<th><b>Articulo</b></th>
 				<th><b>Descripcion</b></th>
 				<th><b>Precio</b></th>
-				<th><b>Cantidad</b></th>
 			</tr>
 
 			<%
@@ -133,13 +132,12 @@ function seleccionar () {
 		%>
 
 
-			<tr bgcolor="#DEB887" onclick="seleccionar()">
-				<td><input type="checkbox" class="seleccion"
-					value="<%=rs.getString("nombre") %>"></input></td>
+			<tr bgcolor="#DEB887" >
+				<td><input type="checkbox" name="seleccion"
+					value="<%=rs.getString("idProducto") %>" onclick="seleccionar()"></input></td>
 				<td><%=rs.getString("nombre") %></td>
 				<td><%=rs.getString("descripcion") %></td>
 				<td><%=rs.getString("costo") %></td>
-				<td><input type="number" name="cantidad" min="1" max="99"></td>
 			</tr>
 
 			<% 
