@@ -38,13 +38,6 @@ public class TestVentas extends HttpServlet {
 		String articulos = request.getParameter("seleccionLista");
 		System.out.println("Venta en Servlet: " + articulos);
 		
-		/*
-		 * Mejor hacer un JSP, ya estoy pasando los valores de la seleccion en ventas.jsp
-		 * tomarlos y mostrar para realizar la cantidad
-		 * En esta pagina hay un ejemplo
-		 * http://www.myutilsjava.net/tutoriales/index.php/jsp/9-enviar-y-recibir-parametros-en-jsp
-		 */
-		
 		
 		
 	}
