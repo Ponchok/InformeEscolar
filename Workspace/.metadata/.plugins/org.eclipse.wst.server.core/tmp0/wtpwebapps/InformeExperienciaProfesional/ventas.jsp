@@ -53,27 +53,21 @@ td {
 <script type="text/javascript">
 
 
-/*
-var table = document.getElementsByTagName("table")[0];
-var tbody = table.getElementsByTagName("tbody")[0];
-tbody.onclick = function (e) {
-    e = e || window.event;
-    var data = [];
-    var target = e.srcElement || e.target;
-    while (target && target.nodeName !== "TR") {
-        target = target.parentNode;
-    }
-    if (target) {
-        var cells = target.getElementsByTagName("td");
-        for (var i = 0; i < cells.length; i++) {
-            data.push(cells[i].innerHTML);
-        }
-    }
-    alert(data);
-};
- */
 
 
+function seleccionar () {
+	var seleccionados = document.getElementsByClassName("seleccion");
+	var seleccion= "";
+	for (i = 0; i < 50; i++ ){
+		if (seleccionados[i].checked == true){
+			seleccion += seleccionados[i].value + " - ";  
+		}
+	}
+	alert(seleccion);
+    };
+    
+
+ 
 </script>
 
 </head>
@@ -114,15 +108,16 @@ tbody.onclick = function (e) {
 
 	<!-- Ejemplo de muestra de Tabla articulos -->
 	<div class="text-center">
-		<table align="center" cellpadding="5" cellspacing="5" border="1" >
+		<table align="center" cellpadding="5" cellspacing="5" border="1">
 			<tr bgcolor="#A52A2A">
-				<td><b>idProducto</b></td>
-				<td><b>nombre</b></td>
-				<td><b>descripcion</b></td>
-				<td><b>costo</b></td>
+				<th></th>
+				<th><b>Articulo</b></th>
+				<th><b>Descripcion</b></th>
+				<th><b>Precio</b></th>
+				<th><b>Cantidad</b></th>
 			</tr>
 
-	   <%
+			<%
 		try{	
 		 Connection conn = null;
 		 Statement stm = null;
@@ -136,17 +131,19 @@ tbody.onclick = function (e) {
 		
 		 while(rs.next()){
 		%>
-			<tr bgcolor="#DEB887">
 
-				<td><%=rs.getString("idProducto") %></td>
+
+			<tr bgcolor="#DEB887" onclick="seleccionar()">
+				<td><input type="checkbox" class="seleccion"
+					value="<%=rs.getString("nombre") %>"></input></td>
 				<td><%=rs.getString("nombre") %></td>
 				<td><%=rs.getString("descripcion") %></td>
 				<td><%=rs.getString("costo") %></td>
+				<td><input type="number" name="cantidad" min="1" max="99"></td>
 			</tr>
 
-          <% 
+			<% 
 		}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -208,7 +205,6 @@ tbody.onclick = function (e) {
 	<script src="js/wow.min.js"></script>
 	<script>
 		wow = new WOW({
-
 		}).init();
 	</script>
 </body>
