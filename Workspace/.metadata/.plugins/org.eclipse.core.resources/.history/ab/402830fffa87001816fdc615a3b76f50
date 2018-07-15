@@ -102,7 +102,7 @@ td {
 
 	<!-- Ejemplo de muestra de Tabla articulos -->
 	<div class="text-center">
-		<form action="/superabarrotes/TestVentas" method="post">
+		<form action="" method="post">
 			<table align="center" cellpadding="5" cellspacing="5" border="1">
 				<tr bgcolor="#A52A2A">
 					<th></th>
@@ -142,7 +142,8 @@ td {
 					}
 				%>
 			</table>
-			<input type="hidden" id="seleccionLista" name="seleccionLista" value=""></input>
+			<input type="hidden" id="seleccionLista" name="seleccionLista"
+				value=""></input>
 			<button type="submit" id="Seleccion" class="btn btn-primary btn-lg">Continuar</button>
 		</form>
 	</div>

@@ -51,23 +51,17 @@ td {
 </style>
 
 <script type="text/javascript">
-
-
-
-
-function seleccionar () {
-	var seleccionados = document.getElementsByName("seleccion");
-	var seleccion= "";
-	for (i = 0; i < 50; i++ ){
-		if (seleccionados[i].checked == true){
-			seleccion += seleccionados[i].value;  
+	function seleccionar() {
+		var seleccionados = document.getElementsByName("seleccion");
+		var seleccion = "";
+		for (i = 0; i < 50; i++) {
+			if (seleccionados[i].checked == true) {
+				seleccion += seleccionados[i].value;
+			}
 		}
-	}
-	alert(seleccion);
-    };
-    
-
- 
+		alert(seleccion);
+		document.getElementById("seleccionLista").value = seleccion;
+	};
 </script>
 
 </head>
@@ -108,47 +102,49 @@ function seleccionar () {
 
 	<!-- Ejemplo de muestra de Tabla articulos -->
 	<div class="text-center">
-		<table align="center" cellpadding="5" cellspacing="5" border="1">
-			<tr bgcolor="#A52A2A">
-				<th></th>
-				<th><b>Articulo</b></th>
-				<th><b>Descripcion</b></th>
-				<th><b>Precio</b></th>
-			</tr>
+		<form action="/superabarrotes/TestVentas" method="post">
+			<table align="center" cellpadding="5" cellspacing="5" border="1">
+				<tr bgcolor="#A52A2A">
+					<th></th>
+					<th><b>Articulo</b></th>
+					<th><b>Descripcion</b></th>
+					<th><b>Precio</b></th>
+				</tr>
 
-			<%
-		try{	
-		 Connection conn = null;
-		 Statement stm = null;
-		 ResultSet rs = null;
-		
-		 AccesoBaseDatos acceso = new AccesoBaseDatos();
-		 conn = acceso.obtenerConexion();
-		 stm = conn.createStatement();
-		 String query = Constantes.DAO_TABLA_ARTICULOS;
-		 rs = stm.executeQuery(query);
-		
-		 while(rs.next()){
-		%>
+				<%
+					try {
+						Connection conn = null;
+						Statement stm = null;
+						ResultSet rs = null;
 
+						AccesoBaseDatos acceso = new AccesoBaseDatos();
+						conn = acceso.obtenerConexion();
+						stm = conn.createStatement();
+						String query = Constantes.DAO_TABLA_ARTICULOS;
+						rs = stm.executeQuery(query);
 
-			<tr bgcolor="#DEB887" >
-				<td><input type="checkbox" name="seleccion"
-					value="<%=rs.getString("idProducto") %>" onclick="seleccionar()"></input></td>
-				<td><%=rs.getString("nombre") %></td>
-				<td><%=rs.getString("descripcion") %></td>
-				<td><%=rs.getString("costo") %></td>
-			</tr>
-
-			<% 
-		}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-          %>
+						while (rs.next()) {
+				%>
 
 
-		</table>
+				<tr bgcolor="#DEB887">
+					<td><input type="checkbox" name="seleccion"
+						value="<%=rs.getString("idProducto")%>" onclick="seleccionar()"></input></td>
+					<td><%=rs.getString("nombre")%></td>
+					<td><%=rs.getString("descripcion")%></td>
+					<td><%=rs.getString("costo")%></td>
+				</tr>
+
+				<%
+					}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				%>
+			</table>
+			<input type="hidden" id="seleccionLista" name="seleccionLista" value=""></input>
+			<button type="submit" id="Seleccion" class="btn btn-primary btn-lg">Continuar</button>
+		</form>
 	</div>
 
 
@@ -202,8 +198,7 @@ function seleccionar () {
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script>
-		wow = new WOW({
-		}).init();
+		wow = new WOW({}).init();
 	</script>
 </body>
 </html>
