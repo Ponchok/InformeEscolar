@@ -31,7 +31,7 @@ tbody {
 }
 
 tbody {
-	height: 300px; /* Just for the demo          */
+	height: 400px; /*   Just for the demo          */
 	overflow-y: auto; /* Trigger vertical scroll    */
 	overflow-x: hidden; /* Hide the horizontal scroll */
 	text-align: left;
@@ -48,7 +48,15 @@ td {
 	background-color: brown;
 	color: #FFF;
 }
+
+#categoria {
+	height: 10px; /* Just for the demo          */
+	overflow-y: auto; /* Trigger vertical scroll    */
+	overflow-x: hidden; /* Hide the horizontal scroll */
+	text-align: left;
+}
 </style>
+
 
 <script type="text/javascript">
 	function seleccionar() {
@@ -56,11 +64,12 @@ td {
 		var seleccion = "";
 		for (i = 0; i < 50; i++) {
 			if (seleccionados[i].checked == true) {
-				seleccion += seleccionados[i].value;
+				seleccion += seleccionados[i].value + "-";
 			}
 		}
 		alert(seleccion);
 		document.getElementById("seleccionLista").value = seleccion;
+
 	};
 </script>
 
@@ -100,10 +109,13 @@ td {
 
 
 
+	
+
 	<!-- Ejemplo de muestra de Tabla articulos -->
-	<div class="text-center">
+	<div class="text-center" id="divarticulos">
 		<form action="/superabarrotes/TestVentas" method="post">
-			<table align="center" cellpadding="5" cellspacing="5" border="1">
+			<table cellpadding="5" cellspacing="5" border="1" id="tbodyarticulos"
+				align="center">
 				<tr bgcolor="#A52A2A">
 					<th></th>
 					<th><b>Articulo</b></th>
@@ -111,7 +123,7 @@ td {
 					<th><b>Precio</b></th>
 				</tr>
 
-				<%
+				<%	
 					try {
 						Connection conn = null;
 						Statement stm = null;
@@ -128,11 +140,11 @@ td {
 
 
 				<tr bgcolor="#DEB887">
-					<td><input type="checkbox" name="seleccion"
+					<td id="tdarticulos"><input type="checkbox" name="seleccion"
 						value="<%=rs.getString("idProducto")%>" onclick="seleccionar()"></input></td>
-					<td><%=rs.getString("nombre")%></td>
-					<td><%=rs.getString("descripcion")%></td>
-					<td><%=rs.getString("costo")%></td>
+					<td id="tdarticulos"><%=rs.getString("nombre")%></td>
+					<td id="tdarticulos"><%=rs.getString("descripcion")%></td>
+					<td id="tdarticulos"><%=rs.getString("costo")%></td>
 				</tr>
 
 				<%
@@ -142,11 +154,12 @@ td {
 					}
 				%>
 			</table>
-			<input type="hidden" id="seleccionLista" name="seleccionLista" value=""></input>
+			<input type="hidden" id="seleccionLista" name="seleccionLista"
+				value=""></input>
 			<button type="submit" id="Seleccion" class="btn btn-primary btn-lg">Continuar</button>
 		</form>
 	</div>
-
+	<!-- Ejemplo de muestra de Tabla articulos -->
 
 
 
