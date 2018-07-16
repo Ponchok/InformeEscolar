@@ -66,9 +66,10 @@ function seleccionar() {
 		var seleccion = "";
 		for (i = 0; i < 90; i++) {
 			if (seleccionados[i].checked == true) {
-				seleccion +=  seleccionados[i].value + ",";
+				seleccion +=  seleccionados[i].value + ", ";
 			}
 		}
+		var seleccionFinal = seleccion.substring(0, seleccion.length-1);
 		alert(seleccion);
 		document.getElementById("seleccionLista").value = seleccion;
 	};

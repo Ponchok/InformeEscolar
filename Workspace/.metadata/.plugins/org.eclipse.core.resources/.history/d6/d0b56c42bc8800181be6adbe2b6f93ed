@@ -41,9 +41,9 @@ public class TestVentas extends HttpServlet {
 		articulos = articulos.substring(0, articulos.length()-1);
 		System.out.println(articulos);
 		
-		String query = "select articulo.nombre as Nombre, articulo.descripcion as Descripcion, articulo.costo as Precio from articulo where articulo.idProducto in (";
+		String query = "Select articulo.nombre as Nombre, articulo.descripcion as Descripcion, articulo.costo as Precio, articulo.idCategoriaProducto as Categoria  from articulo where articulo.idCategoriaProducto in (";
         query += articulos;
-        query += ");";
+        query += ")order by articulo.idCategoriaProducto asc;";
         
         System.out.println(query);
 		
@@ -58,8 +58,6 @@ public class TestVentas extends HttpServlet {
 		
 		/*
 		 * Ya estoy pasando los ids de los articulos, preparar un query con estos
-		 * 
-		 * Ya esta saliendo copiar el jsp de ventas
 		 */
 		
 		

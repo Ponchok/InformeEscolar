@@ -58,8 +58,6 @@ public class TestVentas extends HttpServlet {
 		
 		/*
 		 * Ya estoy pasando los ids de los articulos, preparar un query con estos
-		 * 
-		 * Ya esta saliendo copiar el jsp de ventas
 		 */
 		
 		

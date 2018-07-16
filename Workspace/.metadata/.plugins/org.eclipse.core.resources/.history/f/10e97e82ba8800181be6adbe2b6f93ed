@@ -38,16 +38,6 @@ public class TestVentas extends HttpServlet {
 		String articulos = request.getParameter("seleccionLista");
 		System.out.println("Venta en Servlet: " + articulos);
 		
-		articulos = articulos.substring(0, articulos.length()-1);
-		System.out.println(articulos);
-		
-		String query = "select articulo.nombre as Nombre, articulo.descripcion as Descripcion, articulo.costo as Precio from articulo where articulo.idProducto in (";
-        query += articulos;
-        query += ");";
-        
-        System.out.println(query);
-		
-		
 		/*
 		 * Mejor hacer un JSP, ya estoy pasando los valores de la seleccion en ventas.jsp
 		 * tomarlos y mostrar para realizar la cantidad
@@ -55,18 +45,17 @@ public class TestVentas extends HttpServlet {
 		 * http://www.myutilsjava.net/tutoriales/index.php/jsp/9-enviar-y-recibir-parametros-en-jsp
 		 */
 		
-		
-		/*
-		 * Ya estoy pasando los ids de los articulos, preparar un query con estos
-		 * 
-		 * Ya esta saliendo copiar el jsp de ventas
-		 */
-		
+		System.out.println( removeLastChar(articulos));
 		
 		
 		
 	}
 	
-	
+	public String removeLastChar(String s) {
+	    if (s == null || s.length() == 0) {
+	        return s;
+	    }
+	    return s.substring(0, s.length()-1);
+	}
 
 }
