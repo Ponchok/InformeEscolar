@@ -1,0 +1,15 @@
+package com.abarrotes.utilidades;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public abstract class AccesoBaseDatos {
+
+	public Connection conn = null;
+	private Statement stm = null;
+	private ResultSet rs = null;
+	private boolean esUsuarioRegistrado = false;
+	private boolean esUsuarioAdmin = false;
+	
+}

@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<%@page import="com.abarrotes.utilidades.Constantes"%>
+<%@page import="com.abarrotes.utilidades.AccesoBaseDatos"%>
+<%@page import="com.abarraotes.dao.AccesoSistema"%>
+<%@page import="java.sql.*"%>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -19,51 +24,146 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+<style type="text/css">
+tbody {
+	display: block;
+}
+
+tbody {
+	height: 400px; /*   Just for the demo          */
+	overflow-y: auto; /* Trigger vertical scroll    */
+	overflow-x: hidden; /* Hide the horizontal scroll */
+	text-align: left;
+	padding: 8px;
+}
+
+td {
+	border: 1px #DDD solid;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.selected {
+	background-color: brown;
+	color: #FFF;
+}
+
+#categoria {
+	height: 10px; /* Just for the demo          */
+	overflow-y: auto; /* Trigger vertical scroll    */
+	overflow-x: hidden; /* Hide the horizontal scroll */
+	text-align: left;
+}
+</style>
+
+
+<script type="text/javascript">
+	function seleccionar() {
+		var seleccionados = document.getElementsByName("seleccion");
+		var seleccion = "";
+		for (i = 0; i < 50; i++) {
+			if (seleccionados[i].checked == true) {
+				seleccion += seleccionados[i].value + "-";
+			}
+		}
+		alert(seleccion);
+		document.getElementById("seleccionLista").value = seleccion;
+
+	};
+</script>
+
 </head>
 
 
 <body>
 	<header id="header">
-        <nav class="navbar navbar-default navbar-static-top" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                   <div class="navbar-brand">
+		<nav class="navbar navbar-default navbar-static-top" role="banner">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<div class="navbar-brand">
 						<a href="index.html"><h1>Super Abarrotes Admin Software</h1></a>
 					</div>
-                </div>				
-                <div class="navbar-collapse collapse">							
+				</div>
+				<div class="navbar-collapse collapse">
 					<div class="menu">
 						<ul class="nav nav-tabs" role="tablist">
 							<li role="presentation"><a href="index.html" class="active">Soporte</a></li>
 							<li role="presentation"><a href="index.html">Información</a></li>
-							<li role="presentation"><a href="index.html">Salir</a></li>					
+							<li role="presentation"><a href="index.html">Salir</a></li>
 						</ul>
 					</div>
-				</div>		
-            </div><!--/.container-->
-        </nav><!--/nav-->		
-    </header><!--/header-->	
+				</div>
+			</div>
+			<!--/.container-->
+		</nav>
+		<!--/nav-->
+	</header>
+	<!--/header-->
+
 
 
 	
-	<div class="text-center">
-		<h2>VENTAS</h2>
-		
-		<select>
-			<option>hola</option>
-			<option>hola1</option>
-			<option>hola2</option>
-		
-		</select>
-		
+
+	<!-- Ejemplo de muestra de Tabla articulos -->
+	<div class="text-center" id="divarticulos">
+		<form action="/superabarrotes/TestVentas" method="post">
+			<table cellpadding="5" cellspacing="5" border="1" id="tbodyarticulos"
+				align="center">
+				<tr bgcolor="#A52A2A">
+					<th></th>
+					<th><b>Articulo</b></th>
+					<th><b>Descripcion</b></th>
+					<th><b>Precio</b></th>
+				</tr>
+
+				<%	
+					try {
+						Connection conn = null;
+						Statement stm = null;
+						ResultSet rs = null;
+
+						AccesoBaseDatos acceso = new AccesoBaseDatos();
+						conn = acceso.obtenerConexion();
+						stm = conn.createStatement();
+						String query = Constantes.DAO_TABLA_ARTICULOS;
+						rs = stm.executeQuery(query);
+
+						while (rs.next()) {
+				%>
+
+
+				<tr bgcolor="#DEB887">
+					<td id="tdarticulos"><input type="checkbox" name="seleccion"
+						value="<%=rs.getString("idProducto")%>" onclick="seleccionar()"></input></td>
+					<td id="tdarticulos"><%=rs.getString("nombre")%></td>
+					<td id="tdarticulos"><%=rs.getString("descripcion")%></td>
+					<td id="tdarticulos"><%=rs.getString("costo")%></td>
+				</tr>
+
+				<%
+					}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				%>
+			</table>
+			<input type="hidden" id="seleccionLista" name="seleccionLista"
+				value=""></input>
+			<button type="submit" id="Seleccion" class="btn btn-primary btn-lg">Continuar</button>
+		</form>
 	</div>
-	
+	<!-- Ejemplo de muestra de Tabla articulos -->
+
+
+
+
 
 
 
@@ -111,9 +211,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script>
-			wow = new WOW({
-
-			}).init();
-		</script>
+		wow = new WOW({}).init();
+	</script>
 </body>
 </html>

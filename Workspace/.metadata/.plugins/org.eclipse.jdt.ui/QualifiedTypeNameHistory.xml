@@ -5,4 +5,5 @@
 <fullyQualifiedTypeName name="com.abarrotes.utilidades.ConexionBD"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="com.abarraotes.dao.AccesoSistema"/>
 </qualifiedTypeNameHistroy>
