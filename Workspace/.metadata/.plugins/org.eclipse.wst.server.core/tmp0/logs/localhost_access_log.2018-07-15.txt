@@ -165,3 +165,16 @@
 0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:25:49 -0500] "POST /superabarrotes/AdminControler HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:25:49 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 32207
 0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:25:58 -0500] "POST /superabarrotes/TestVentas HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:30:55 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 32207
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:38:24 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 5356
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:38:28 -0500] "POST /superabarrotes/TestVentas HTTP/1.1" 200 -
+127.0.0.1 - - [15/Jul/2018:22:39:58 -0500] "GET / HTTP/1.1" 404 996
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:40:01 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 5356
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:40:44 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 5325
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:42:19 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 5320
+127.0.0.1 - - [15/Jul/2018:22:43:20 -0500] "GET / HTTP/1.1" 404 996
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:43:21 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 5320
+127.0.0.1 - - [15/Jul/2018:22:45:18 -0500] "GET / HTTP/1.1" 404 996
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:45:20 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 5320
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:46:54 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 32014
+0:0:0:0:0:0:0:1 - - [15/Jul/2018:22:47:05 -0500] "POST /superabarrotes/TestVentas HTTP/1.1" 200 -
