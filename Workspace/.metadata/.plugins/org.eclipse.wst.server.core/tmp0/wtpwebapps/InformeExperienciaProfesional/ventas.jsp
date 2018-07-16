@@ -29,7 +29,6 @@
 tbody {
 	display: block;
 }
-
 tbody {
 	height: 400px; /*   Just for the demo          */
 	overflow-y: auto; /* Trigger vertical scroll    */
@@ -37,23 +36,14 @@ tbody {
 	text-align: left;
 	padding: 8px;
 }
-
 td {
 	border: 1px #DDD solid;
 	padding: 5px;
 	cursor: pointer;
 }
-
 .selected {
 	background-color: brown;
 	color: #FFF;
-}
-
-#categoria {
-	height: 10px; /* Just for the demo          */
-	overflow-y: auto; /* Trigger vertical scroll    */
-	overflow-x: hidden; /* Hide the horizontal scroll */
-	text-align: left;
 }
 </style>
 
@@ -69,7 +59,6 @@ td {
 		}
 		alert(seleccion);
 		document.getElementById("seleccionLista").value = seleccion;
-
 	};
 </script>
 
@@ -128,13 +117,11 @@ td {
 						Connection conn = null;
 						Statement stm = null;
 						ResultSet rs = null;
-
 						AccesoBaseDatos acceso = new AccesoBaseDatos();
 						conn = acceso.obtenerConexion();
 						stm = conn.createStatement();
 						String query = Constantes.DAO_TABLA_ARTICULOS;
 						rs = stm.executeQuery(query);
-
 						while (rs.next()) {
 				%>
 
