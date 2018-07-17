@@ -149,6 +149,9 @@ function obtenerCantidad() {
 
 				<%
 					}
+						conn.close();
+						stm.close();
+						rs.close();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

@@ -66,7 +66,7 @@ td {
 	function seleccionar() {
 		var seleccionados = document.getElementsByName("seleccion");
 		var seleccion = "";
-		for (i = 0; i < seleccionados.length; i++) {
+		for (i = 0; i < 90; i++) {
 			if (seleccionados[i].checked == true) {
 				seleccion += seleccionados[i].value + ",";
 			}

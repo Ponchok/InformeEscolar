@@ -37,20 +37,15 @@ public class TestVentas extends HttpServlet {
 		
 		String articulos = request.getParameter("seleccionLista");
 		System.out.println("\nDetalle Venta en Servlet: " + articulos);
-		//Resultado = Detalle Venta en Servlet: 31,48,82,91,
 		
 		String cantidades = request.getParameter("cantidadesLista");
 		System.out.println("Detalle Cantidades: " + cantidades);
-		//Resultado = Detalle Venta en Servlet: Detalle Cantidades: 3-2-2-6-
-		
 		
 		
 		/*
 		 * Ya hemos podido obtener los id's de los articulos y las cantidades 
 		 * Ahora hay que insertarlos en la base d edatos
 		 * 
-		 * Ejemplo Quey para el insert
-		 * INSERT INTO `SandBoxAbarrote`.`detalleventa` (`idVenta`, `idArticulo`, `cantidad`, `idEmpleado`, `idCliente`) VALUES ('31', '1', '1', '1', '1');
 		 */
 		
 		

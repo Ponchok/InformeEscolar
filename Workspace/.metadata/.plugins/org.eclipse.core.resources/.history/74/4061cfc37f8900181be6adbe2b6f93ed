@@ -37,12 +37,9 @@ public class TestVentas extends HttpServlet {
 		
 		String articulos = request.getParameter("seleccionLista");
 		System.out.println("\nDetalle Venta en Servlet: " + articulos);
-		//Resultado = Detalle Venta en Servlet: 31,48,82,91,
 		
 		String cantidades = request.getParameter("cantidadesLista");
 		System.out.println("Detalle Cantidades: " + cantidades);
-		//Resultado = Detalle Venta en Servlet: Detalle Cantidades: 3-2-2-6-
-		
 		
 		
 		/*

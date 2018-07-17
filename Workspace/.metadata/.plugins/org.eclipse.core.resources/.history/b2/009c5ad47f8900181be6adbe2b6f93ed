@@ -43,8 +43,6 @@ public class TestVentas extends HttpServlet {
 		System.out.println("Detalle Cantidades: " + cantidades);
 		//Resultado = Detalle Venta en Servlet: Detalle Cantidades: 3-2-2-6-
 		
-		
-		
 		/*
 		 * Ya hemos podido obtener los id's de los articulos y las cantidades 
 		 * Ahora hay que insertarlos en la base d edatos
