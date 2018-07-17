@@ -36,32 +36,17 @@ public class TestVentas extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String articulos = request.getParameter("seleccionLista");
-		System.out.println("Venta en Servlet: " + articulos);
+		System.out.println("\nDetalle Venta en Servlet: " + articulos);
 		
-		articulos = articulos.substring(0, articulos.length()-1);
-		System.out.println(articulos);
-		
-		String query = "select articulo.nombre as Nombre, articulo.descripcion as Descripcion, articulo.costo as Precio from articulo where articulo.idProducto in (";
-        query += articulos;
-        query += ");";
-        
-        System.out.println(query);
+		String cantidades = request.getParameter("cantidadesLista");
+		System.out.println("Detalle Cantidades: " + cantidades);
 		
 		
 		/*
-		 * Mejor hacer un JSP, ya estoy pasando los valores de la seleccion en ventas.jsp
-		 * tomarlos y mostrar para realizar la cantidad
-		 * En esta pagina hay un ejemplo
-		 * http://www.myutilsjava.net/tutoriales/index.php/jsp/9-enviar-y-recibir-parametros-en-jsp
-		 */
-		
-		
-		/*
-		 * Ya estoy pasando los ids de los articulos, preparar un query con estos
+		 * Ya hemos podido obtener los id's de los articulos y las cantidades 
+		 * Ahora hay que insertarlos en la base d edatos
 		 * 
-		 * Ya esta saliendo copiar el jsp de ventas
 		 */
-		
 		
 		
 		

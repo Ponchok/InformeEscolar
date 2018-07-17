@@ -29,6 +29,7 @@
 tbody {
 	display: block;
 }
+
 tbody {
 	height: 500px; /*   Just for the demo          */
 	overflow-y: auto; /* Trigger vertical scroll    */
@@ -36,85 +37,84 @@ tbody {
 	text-align: left;
 	padding: 8px;
 }
+
 td {
 	border: 1px #DDD solid;
 	padding: 5px;
 	cursor: pointer;
 }
+
 .selected {
 	background-color: brown;
 	color: #FFF;
 }
 
-#busqueda1, #busqueda2{
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 450px;
-  font-size: 16px;
-  font-weight:bold;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-	
+#busqueda1, #busqueda2 {
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	width: 450px;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
 }
 </style>
 
 
 <script type="text/javascript">
-function seleccionar() {
+	function seleccionar() {
 		var seleccionados = document.getElementsByName("seleccion");
 		var seleccion = "";
 		for (i = 0; i < 90; i++) {
 			if (seleccionados[i].checked == true) {
-				seleccion +=  seleccionados[i].value + ",";
+				seleccion += seleccionados[i].value + ",";
 			}
+
 		}
-		alert(seleccion);
 		document.getElementById("seleccionLista").value = seleccion;
 	};
-	
+
 	function busqueda1() {
-		  var input, filter, table, tr, td, i;
-		  input = document.getElementById("busqueda1");
-		  filter = input.value.toUpperCase();
-		  table = document.getElementById("tbodyarticulos");
-		  tr = table.getElementsByTagName("tr");
-		  for (i = 0; i < tr.length; i++) {
-		    td = tr[i].getElementsByTagName("td")[2];
-		    if (td) {
-		      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-		        tr[i].style.display = "";
-		      } else {
-		        tr[i].style.display = "none";
-		      }
-		    }       
-		  }
+		var input, filter, table, tr, td, i;
+		input = document.getElementById("busqueda1");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("tbodyarticulos");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[2];
+			if (td) {
+				if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
 		}
-	
+	}
+
 	function busqueda2() {
-		  var input, filter, table, tr, td, i;
-		  input = document.getElementById("busqueda2");
-		  filter = input.value.toUpperCase();
-		  table = document.getElementById("tbodyarticulos");
-		  tr = table.getElementsByTagName("tr");
-		  for (i = 0; i < tr.length; i++) {
-		    td = tr[i].getElementsByTagName("td")[4];
-		    if (td) {
-		      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-		        tr[i].style.display = "";
-		      } else {
-		        tr[i].style.display = "none";
-		      }
-		    }       
-		  }
+		var input, filter, table, tr, td, i;
+		input = document.getElementById("busqueda2");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("tbodyarticulos");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[4];
+			if (td) {
+				if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
 		}
-	
-	
-	function limpia(){
+	}
+
+	function limpia() {
 		document.getElementById("busqueda1").value = "";
 		document.getElementById("busqueda2").value = "";
 	}
-	
 </script>
 
 </head>
@@ -153,17 +153,19 @@ function seleccionar() {
 
 
 
-	
+
 
 	<!-- Ejemplo de muestra de Tabla articulos -->
 	<div class="text-center" id="divarticulos">
-	
-	<input type="text" id="busqueda1" onkeyup="busqueda1()" placeholder="Busca Nombre de Articulo o Descripción..." title="Haz click y busca por nombre o descripción">
-	<br>
-	<input type="text" id="busqueda2" onkeyup="busqueda2()" placeholder="Busca por Categoria de Articulo ..." title="Haz click y busca por categorias">
-	<br>
-	<button onclick="limpia()">Limpia Busquedas</button>
-		<form action="/superabarrotes/TestVentas" method="post">
+
+		<input type="text" id="busqueda1" onkeyup="busqueda1()"
+			placeholder="Busca Nombre de Articulo o Descripción..."
+			title="Haz click y busca por nombre o descripción"> <br>
+		<input type="text" id="busqueda2" onkeyup="busqueda2()"
+			placeholder="Busca por Categoria de Articulo ..."
+			title="Haz click y busca por categorias"> <br>
+		<button onclick="limpia()">Limpia Busquedas</button>
+		<form action="/superabarrotes/detalleVenta.jsp" method="post">
 			<table cellpadding="5" cellspacing="5" border="1" id="tbodyarticulos"
 				align="center">
 				<tr bgcolor="#A52A2A">
@@ -174,7 +176,7 @@ function seleccionar() {
 					<th><b>Categoria</b></th>
 				</tr>
 
-				<%	
+				<%
 					try {
 						Connection conn = null;
 						Statement stm = null;
@@ -198,7 +200,12 @@ function seleccionar() {
 				</tr>
 
 				<%
+					
+
 					}
+						conn.close();
+						stm.close();
+						rs.close();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
