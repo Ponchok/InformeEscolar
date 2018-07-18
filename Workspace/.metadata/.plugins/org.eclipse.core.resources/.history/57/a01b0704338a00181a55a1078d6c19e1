@@ -1,0 +1,20 @@
+package com.abarraotes.dao;
+
+public class AccesoVentas {
+
+	/**
+	 * Metodo para insertar una nueva venta con fecha en la tabla
+	 * "ventas"
+	 * Ejemplo Quey Insert a tabla ventas
+	 * INSERT INTO `SandBoxAbarrote`.`ventas` (`idVenta`, `fecha`) VALUES ('31', '2018-07-17');
+	 */
+	public void insertarVenta(){
+		
+		
+		GeneradorID id = new GeneradorID();	
+		String idVenta = id.generarIDVenta();
+		
+		
+	}
+
+}

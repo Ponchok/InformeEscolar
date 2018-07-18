@@ -1,11 +1,18 @@
 package com.abarrotes.controlador;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.abarraotes.dao.AccesoVentas;
+import com.abarraotes.dao.GeneradorID;
+import com.abarrotes.utilidades.FechaGenerador;
 
 /**
  * Servlet implementation class TestVentas
@@ -49,14 +56,29 @@ public class TestVentas extends HttpServlet {
 		 * Ya hemos podido obtener los id's de los articulos y las cantidades 
 		 * Ahora hay que insertarlos en la base d edatos
 		 * 
-		 * Ejemplo Quey para el insert
+		 * Ejemplo Quey para el insert en la tabla detalle venta
 		 * INSERT INTO `SandBoxAbarrote`.`detalleventa` (`idVenta`, `idArticulo`, `cantidad`, `idEmpleado`, `idCliente`) VALUES ('31', '1', '1', '1', '1');
+		 * 
+		 * Ejemplo Quey Insert a tabla ventas
+		 * INSERT INTO `SandBoxAbarrote`.`ventas` (`idVenta`, `fecha`) VALUES ('31', '2018-07-17');
+		 * 
 		 */
+		
 		
 		
 		
 	}
 	
-	
+	public static void main(String[] args) {
+		
+		//EXITOSO INSERTAR EN TABLA VENTAS
+		System.out.println("Empezando prueba insert en tabla ventas");
+		AccesoVentas ac = new AccesoVentas();
+		String idVenta = ac.insertarVenta();
+		System.out.println("Terminado Prueba, obtuvimos registro nuevo: " + idVenta);
+		//EXITOSO INSERTAR EN TABLA VENTAS
+		
+		
+	}
 
 }

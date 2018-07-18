@@ -1,0 +1,9 @@
+package com.abarraotes.dao;
+
+import com.abarrotes.utilidades.AccesoBaseDatos;
+
+public class GeneradorID extends AccesoBaseDatos {
+	
+	
+
+}
