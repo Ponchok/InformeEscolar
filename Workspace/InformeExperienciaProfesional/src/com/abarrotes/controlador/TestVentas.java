@@ -50,6 +50,9 @@ public class TestVentas extends HttpServlet {
 		System.out.println("Detalle Cantidades: " + cantidades);
 		//Resultado = Detalle Venta en Servlet: Detalle Cantidades: 3-2-2-6-
 		
+		System.out.println("Empezando prueba insert en tabla ventas y detalle ventas");
+		AccesoVentas ac = new AccesoVentas();
+		ac.insertDetalleVenta( articulos, cantidades, "1", "1");
 		
 		
 		/*
@@ -72,11 +75,20 @@ public class TestVentas extends HttpServlet {
 	public static void main(String[] args) {
 		
 		//EXITOSO INSERTAR EN TABLA VENTAS
-		System.out.println("Empezando prueba insert en tabla ventas");
-		AccesoVentas ac = new AccesoVentas();
-		String idVenta = ac.insertarVenta();
-		System.out.println("Terminado Prueba, obtuvimos registro nuevo: " + idVenta);
+//		System.out.println("Empezando prueba insert en tabla ventas");
+//		AccesoVentas ac = new AccesoVentas();
+//		String idVenta = ac.insertarVenta();
+//		System.out.println("Terminado Prueba, obtuvimos registro nuevo: " + idVenta);
 		//EXITOSO INSERTAR EN TABLA VENTAS
+		
+		
+		//EXITOSO INSERTAR EN TABLA DETALLE VENTAS
+//		System.out.println("Empezando prueba insert en tabla ventas y detalle ventas");
+//		AccesoVentas ac = new AccesoVentas();
+//		ac.insertDetalleVenta( "50,2,", "10,30,", "1", "1");
+		//EXITOSO INSERTAR EN TABLA DETALLE VENTAS
+		
+		
 		
 		
 	}

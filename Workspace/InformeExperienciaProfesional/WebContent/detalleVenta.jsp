@@ -68,7 +68,7 @@ function obtenerCantidad() {
 	var cantidades = "";
 	for (i = 0; i < contadoresMarcados.length; i++){
 		
-		cantidades += contadoresMarcados[i].value + "-";
+		cantidades += contadoresMarcados[i].value + ",";
 	}
 	document.getElementById("cantidadesLista").value = cantidades;
 }
