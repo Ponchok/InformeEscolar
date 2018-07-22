@@ -4,8 +4,18 @@ import java.sql.SQLException;
 import com.abarrotes.utilidades.AccesoBaseDatos;
 import com.abarrotes.utilidades.Constantes;
 
+/**
+ * Esta clase generadora permite obtener ID's unicas de la base de datos para nuevas transacciones
+ * 
+ *
+ */
 public class GeneradorID extends AccesoBaseDatos {
 
+	/**
+	 * Este Metodo regresa un ID de la base de datos y que se puede
+	 * usar en una nueva transaccion de venta.
+	 * @return ID de base de datos como Venta.
+	 */
 	public String generarIDVenta() {
 		String id = null;
 		try {

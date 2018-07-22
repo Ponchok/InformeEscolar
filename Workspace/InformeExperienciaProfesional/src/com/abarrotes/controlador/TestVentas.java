@@ -1,22 +1,12 @@
 package com.abarrotes.controlador;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.abarrotes.utilidades.AccesoBaseDatos;
-import com.abarrotes.utilidades.FechaGenerador;
+import com.abarraotes.dao.AccesoVentas;
 import com.abarrotes.utilidades.VentaArticulosGenerador;
 
 /**
@@ -51,20 +41,23 @@ public class TestVentas extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String articulos = request.getParameter("seleccionLista");
-		System.out.println("\nDetalle Venta en Servlet: " + articulos);
-		// Resultado = Detalle Venta en Servlet: 1,2,3,
+		//	PREPARANDO INFORMACION OBTENIDA DEL FORMULARIO
+		
+		String articulosRAW = request.getParameter("seleccionLista");
+		String articulos = articulosRAW.substring(0, (articulosRAW.length() - 1));
 
-		String cantidades = request.getParameter("cantidadesLista");
-		System.out.println("Detalle Cantidades: " + cantidades);
-		// Resultado = Detalle Venta en Servlet: Detalle Cantidades: 1,1,1,
-
+		
+		String cantidadesRAW = request.getParameter("cantidadesLista");
+		String cantidades = cantidadesRAW.substring(0, (cantidadesRAW.length() - 1));
+		
+		
 		VentaArticulosGenerador vag = new VentaArticulosGenerador();
-		String ventaArticulos = vag.generarVentaArticulo(articulos, cantidades);
-		System.out.println("Detalle de Venta por Articulo: " + ventaArticulos);
-		// Resultado = Detalle de Venta por Articulo: 40,70,60,12,
+		String ventaArticulosRAW = vag.generarVentaArticulo(articulos, cantidades);
+		String ventaArticulos = ventaArticulosRAW.substring(0, (ventaArticulosRAW.length() - 1));
 		
 		
+		AccesoVentas ac = new AccesoVentas();
+		ac.insertDetalleVenta(articulos, cantidades, "1", "1", ventaArticulos);
 		
 		
 		

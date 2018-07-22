@@ -10,6 +10,7 @@ import com.abarraotes.dao.AccesoSistema;
 
 /**
  * Servlet implementation class AdminControler
+ * Este Servlet es el Controlador el cual determina los accesos a la aplicación.
  */
 @WebServlet("/AdminControler")
 public class AdminControler extends HttpServlet {
