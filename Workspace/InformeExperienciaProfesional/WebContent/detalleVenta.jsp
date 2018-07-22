@@ -31,7 +31,7 @@ tbody {
 }
 
 tbody {
-	height: 150px; /*   Just for the demo          */
+	height: 300px; /*   Just for the demo          */
 	overflow-y: auto; /* Trigger vertical scroll    */
 	overflow-x: hidden; /* Hide the horizontal scroll */
 	text-align: left;
@@ -49,16 +49,6 @@ td {
 	color: #FFF;
 }
 
-#busqueda1, #busqueda2 {
-	background-position: 10px 10px;
-	background-repeat: no-repeat;
-	width: 150px;
-	font-size: 16px;
-	font-weight: bold;
-	padding: 12px 20px 12px 40px;
-	border: 1px solid #ddd;
-	margin-bottom: 12px;
-}
 </style>
 
 <script type="text/javascript">
@@ -141,9 +131,9 @@ function obtenerCantidad() {
 
 
 				<tr bgcolor="#DEB887">
-					<td id="tdarticulos"><%=rs.getString("Nombre")%></td>
-					<td id="tdarticulos"><%=rs.getString("Descripcion")%></td>
-					<td id="tdarticulos"><%=rs.getString("Precio")%></td>
+					<td><%=rs.getString("Nombre")%></td>
+					<td><%=rs.getString("Descripcion")%></td>
+					<td id="precio"><%=rs.getInt("Precio")%></td>
 					<td><input type="number" min="1" max="99" onchange="obtenerCantidad()" name="cantidad"></td>
 				</tr>
 
@@ -156,11 +146,11 @@ function obtenerCantidad() {
 						e.printStackTrace();
 					}
 				%>
+				
 			</table>
 			<button id="regresar" class="btn btn-primary btn-lg"><a href="http://localhost:8080/superabarrotes/ventas.jsp"> Regresar</a></button>
-			
-			<input type="hidden" id="cantidadesLista" name="cantidadesLista" value=""></input>
 			<input type="hidden" id="seleccionLista" name="seleccionLista" value="<%=request.getParameter("seleccionLista")%>"></input>
+			<input type="hidden" id="cantidadesLista" name="cantidadesLista" value=""></input>
 			<button type="submit" id="Seleccion" class="btn btn-primary btn-lg">Continuar</button>
 		</form>
 	</div>

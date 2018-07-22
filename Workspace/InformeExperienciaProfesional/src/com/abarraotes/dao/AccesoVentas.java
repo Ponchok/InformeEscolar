@@ -10,6 +10,7 @@ import org.apache.tomcat.util.buf.UDecoder;
 import com.abarrotes.utilidades.AccesoBaseDatos;
 import com.abarrotes.utilidades.Constantes;
 import com.abarrotes.utilidades.FechaGenerador;
+import com.abarrotes.utilidades.GeneradorID;
 
 public class AccesoVentas extends AccesoBaseDatos {
 
@@ -25,7 +26,7 @@ public class AccesoVentas extends AccesoBaseDatos {
 	 * Ejemplo Quey Insert a tabla ventas INSERT INTO SandBoxAbarrote.ventas
 	 * (idVenta, fecha) VALUES (31, 2018-07-17);
 	 */
-	public String insertarIdVenta() {
+	public String insertarVenta() {
 
 		GeneradorID id = new GeneradorID();
 		String idVenta = id.generarIDVenta();
@@ -44,6 +45,12 @@ public class AccesoVentas extends AccesoBaseDatos {
 		return idVenta;
 	}
 
+	
+	
+	
+	
+	
+	
 	/**
 	 * Metodo para insertar una detalle de venta en la tabla "detalleventa"
 	 * Ejemplo Query INSERT INTO `SandBoxAbarrote`.`detalleventa` (`idVenta`,
@@ -59,7 +66,7 @@ public class AccesoVentas extends AccesoBaseDatos {
 
 		System.out.println("Entrando a Metodo insertarDetalleVenta");
 		// Insertar Id de venta y a su vez insertando en tabla de ventas
-		String idVenta = insertarIdVenta();
+		String idVenta = insertarVenta();
         System.out.println("Valor del ID en el metodo insertarDetalleVenta: " + idVenta);
 		
 		// Del string con todos los articulos, remover el ultimo caracter

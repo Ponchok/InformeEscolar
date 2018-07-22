@@ -1,0 +1,31 @@
+package com.abarrotes.utilidades;
+
+import java.sql.SQLException;
+
+public class VentaArticulosGenerador extends AccesoBaseDatos {
+	
+	
+	public String generarVentaArticulo(){
+		
+		String ventasPorArticulo = "";
+		
+		try {
+			conn = obtenerConexion();
+			stm = conn.createStatement();
+			String query = Constantes.DAO_OBTENER_ID_VENTA;
+			rs = stm.executeQuery(query);
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+
+}

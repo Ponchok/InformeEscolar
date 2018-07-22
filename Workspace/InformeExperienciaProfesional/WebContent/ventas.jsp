@@ -73,7 +73,7 @@ td {
 
 		}
 		document.getElementById("seleccionLista").value = seleccion;
-	};
+	}; 
 
 	function busqueda1() {
 		var input, filter, table, tr, td, i;
