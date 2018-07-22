@@ -1,0 +1,151 @@
+package com.abarrotes.controlador;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+import com.abarrotes.utilidades.AccesoBaseDatos;
+import com.abarrotes.utilidades.FechaGenerador;
+import com.abarrotes.utilidades.VentaArticulosGenerador;
+
+/**
+ * Servlet implementation class TestVentas
+ */
+@WebServlet("/TestVentas")
+public class TestVentas extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public TestVentas() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String articulos = request.getParameter("seleccionLista");
+		System.out.println("\nDetalle Venta en Servlet: " + articulos);
+		//Resultado = Detalle Venta en Servlet: 1,2,3,
+		
+		String cantidades = request.getParameter("cantidadesLista");
+		System.out.println("Detalle Cantidades: " + cantidades);
+		//Resultado = Detalle Venta en Servlet: Detalle Cantidades: 1,1,1,
+		
+		VentaArticulosGenerador vag = new VentaArticulosGenerador();
+		String ventaArticulos = vag.generarVentaArticulo(articulos, cantidades);
+		System.out.println("Detalle de Venta por Articulo: " + ventaArticulos);
+		//Resultado = Detalle de Venta por Articulo: 40,70,60,12,
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		//EXITOSO INSERTAR EN TABLA VENTAS
+//		System.out.println("Empezando prueba insert en tabla ventas");
+//		AccesoVentas ac = new AccesoVentas();
+//		String idVenta = ac.insertarVenta();
+//		System.out.println("Terminado Prueba, obtuvimos registro nuevo: " + idVenta);
+		//EXITOSO INSERTAR EN TABLA VENTAS
+		
+		
+		//EXITOSO INSERTAR EN TABLA DETALLE VENTAS
+//		System.out.println("Empezando prueba insert en tabla ventas y detalle ventas");
+//		AccesoVentas ac = new AccesoVentas();
+//		ac.insertDetalleVenta( "50,2,", "10,30,", "1", "1");
+		//EXITOSO INSERTAR EN TABLA DETALLE VENTAS
+		
+		//NUEVAS PRUEBAS EXITOSO
+//		String articulos = "1,2,3,";
+//		String cantidades = "3,3,3,";
+//		String ventaTotalArticulo = "";
+//		
+//		System.out.println("Prueba de nueva clase, resultado esperado: 60,72,69,");
+//		VentaArticulosGenerador vag = new VentaArticulosGenerador();
+//		ventaTotalArticulo = vag.generarVentaArticulo(articulos, cantidades);
+//		
+//		
+//		System.out.println(">>> " + ventaTotalArticulo);
+//		
+		
+		
+		
+		//AREA de PRUEBAS
+//		String obtenerPrecios = "";
+//		Connection conn = null;
+//		Statement stm = null;
+//		ResultSet rs = null;
+//		try {
+//			
+//			AccesoBaseDatos acceso = new AccesoBaseDatos();
+//			conn = acceso.obtenerConexion();
+//			String query = "select articulo.precio from articulo where articulo.idProducto in (" + articulos + ");";
+//			stm = conn.createStatement();
+//			rs = stm.executeQuery(query);
+//			
+//			while(rs.next()){
+//				int precio = rs.getInt("precio");
+//				System.out.println("Checando precio: " + precio);
+//				obtenerPrecios += precio +",";
+//				
+//			}
+//
+//			
+//		} catch (SQLException e) {
+//			
+//			e.printStackTrace();
+//		}finally {
+//			try {
+//				conn.close();
+//				stm.close();
+//				rs.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		
+//		System.out.println("Revisando Precios obtenidos: " + obtenerPrecios);
+//		System.out.println("Iniciando Prueba de ontener venta total");
+//		
+//		String[] articulosLista = articulos.split(",");
+//		String [] cantidadesLista = cantidades.split(",");
+//		String [] preciosLista = obtenerPrecios.split(",");
+//		
+//
+//		for (int i = 0; i < articulosLista.length; i++ ){
+//			System.out.println("Iteracion: " + i);
+//			 ventaTotalArticulo +=  (Integer.parseInt(cantidadesLista[i]) * Integer.parseInt(preciosLista[i])) + ",";
+//			 System.out.println("Venta de este articulo: " + ventaTotalArticulo);
+//			
+//			
+//			
+//		}
+		
+		
+	}
+
+}

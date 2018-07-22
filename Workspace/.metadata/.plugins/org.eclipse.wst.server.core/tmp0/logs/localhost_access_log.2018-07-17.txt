@@ -1,0 +1,4 @@
+127.0.0.1 - - [17/Jul/2018:00:09:22 -0500] "GET / HTTP/1.1" 404 996
+0:0:0:0:0:0:0:1 - - [17/Jul/2018:00:09:25 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 37480
+0:0:0:0:0:0:0:1 - - [17/Jul/2018:00:09:36 -0500] "POST /superabarrotes/detalleVenta.jsp HTTP/1.1" 200 6656
+0:0:0:0:0:0:0:1 - - [17/Jul/2018:00:09:47 -0500] "POST /superabarrotes/TestVentas HTTP/1.1" 200 -

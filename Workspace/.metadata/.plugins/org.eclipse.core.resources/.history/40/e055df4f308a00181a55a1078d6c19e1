@@ -1,0 +1,15 @@
+package com.abarraotes.dao;
+
+import java.sql.Connection;
+
+import com.abarrotes.utilidades.AccesoBaseDatos;
+
+public class GeneradorID extends AccesoBaseDatos {
+	
+	public static String generarIDVenta(){
+		
+		
+		
+	}
+
+}

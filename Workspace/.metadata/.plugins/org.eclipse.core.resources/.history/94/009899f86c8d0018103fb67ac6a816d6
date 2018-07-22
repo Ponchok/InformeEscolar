@@ -1,0 +1,39 @@
+package com.abarrotes.utilidades;
+
+import java.sql.SQLException;
+
+public class VentaArticulosGenerador extends AccesoBaseDatos {
+	
+	
+	public String generarVentaArticulo(String articulos){
+		
+		String ventasPorArticulo = "";
+		int obtenerPrecios;
+		
+		try {
+			conn = obtenerConexion();
+			stm = conn.createStatement();
+			String query = Constantes.DAO_SELECCION_PRECIOS_ARTICULOS_1 + articulos + Constantes.DAO_SELECCION_PRECIOS_ARTICULOS_2;
+			rs = stm.executeQuery(query);
+			
+
+			while(rs.next()){
+				int precio = rs.getInt("precio");
+				System.out.println("Checando precio: " + precio);
+				obtenerPrecios += precio +",";
+				
+			}
+			
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+
+}

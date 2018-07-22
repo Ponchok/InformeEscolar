@@ -2,6 +2,11 @@ package com.abarrotes.utilidades;
 
 import java.sql.*;
 
+/**
+ * Esta clase entabla la conexion directa con la base de datos.
+ * 
+ *
+ */
 public class ConexionBD {
 
 	/**

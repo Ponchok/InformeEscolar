@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.abarraotes.dao.AccesoVentas;
+import com.abarrotes.utilidades.VentaArticulosGenerador;
 
 /**
  * Servlet implementation class TestVentas
@@ -13,40 +15,55 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/TestVentas")
 public class TestVentas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public TestVentas() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public TestVentas() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		//	PREPARANDO INFORMACION OBTENIDA DEL FORMULARIO
 		
-		String articulos = request.getParameter("seleccionLista");
-		System.out.println("Venta en Servlet: " + articulos);
+		String articulosRAW = request.getParameter("seleccionLista");
+		String articulos = articulosRAW.substring(0, (articulosRAW.length() - 1));
+
 		
-		/*
-		 * Mejor hacer un JSP, ya estoy pasando los valores de la seleccion en ventas.jsp
-		 * tomarlos y mostrar para realizar la cantidad
-		 * En esta pagina hay un ejemplo
-		 * http://www.myutilsjava.net/tutoriales/index.php/jsp/9-enviar-y-recibir-parametros-en-jsp
-		 */
+		String cantidadesRAW = request.getParameter("cantidadesLista");
+		String cantidades = cantidadesRAW.substring(0, (cantidadesRAW.length() - 1));
 		
 		
+		VentaArticulosGenerador vag = new VentaArticulosGenerador();
+		String ventaArticulosRAW = vag.generarVentaArticulo(articulos, cantidades);
+		String ventaArticulos = ventaArticulosRAW.substring(0, (ventaArticulosRAW.length() - 1));
 		
+		
+		AccesoVentas ac = new AccesoVentas();
+		ac.insertDetalleVenta(articulos, cantidades, "1", "1", ventaArticulos);
+		
+		
+		
+		
+		
+
 	}
 
 }

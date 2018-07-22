@@ -1,0 +1,109 @@
+package com.abarraotes.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Date;
+import com.abarrotes.utilidades.AccesoBaseDatos;
+import com.abarrotes.utilidades.Constantes;
+import com.abarrotes.utilidades.FechaGenerador;
+import com.abarrotes.utilidades.GeneradorID;
+import com.abarrotes.utilidades.VentaArticulosGenerador;
+
+public class AccesoVentas extends AccesoBaseDatos {
+
+	private Connection conn = null;
+	private PreparedStatement stmt = null;
+	
+	public AccesoVentas(){
+		conn = obtenerConexion();
+	}
+
+	
+	
+	/**
+	 * Metodo para insertar una nueva venta con fecha en la tabla "ventas"
+	 * Ejemplo Quey Insert a tabla ventas INSERT INTO SandBoxAbarrote.ventas
+	 * (idVenta, fecha) VALUES (31, 2018-07-17,495);
+	 */
+	public void insertarVenta(String idVenta, String articulos, String cantidades ) {
+
+		VentaArticulosGenerador vag = new VentaArticulosGenerador();
+		String fechaVenta = FechaGenerador.fechaBD(new Date());
+		String ventaTotal = vag.ventaTotal(idVenta, articulos, cantidades);
+		
+		
+		try {
+			stmt = conn.prepareStatement(Constantes.DAO_INSERTAR_VENTA);
+			stmt.setString(1, idVenta);
+			stmt.setString(2, fechaVenta);
+			stmt.setString(3, ventaTotal);
+		    stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	
+	
+	/**
+	 * Metodo para insertar una detalle de venta en la tabla "detalleventa"
+	 * Ejemplo Query INSERT INTO `SandBoxAbarrote`.`detalleventa` (`idVenta`,
+	 * `idArticulo`, `cantidad`, `idEmpleado`, `idCliente`, `ventaTotalArticulo` ) VALUES ('31', '1',
+	 * '1', '1', '1', '1');
+	 * 
+	 * @param idVenta
+	 * @param idArticulos
+	 * @param idEmpleado
+	 * @param idCliente
+	 */
+	public void insertDetalleVenta(String articulos, String cantidades, String idEmpleado, String idCliente, String ventaArticulos) {
+
+		GeneradorID id = new GeneradorID();
+		String idVenta = id.generarIDVenta();
+		
+		String [] articulosLista = articulos.split(",");
+		String [] cantidadLista = cantidades.split(",");
+		
+		// El idEmpleado sacarlo despues del obejto Session
+		idEmpleado = "1";
+		// El idCliente sacarlo luego del request
+		idCliente = "1";
+	
+		String [] ventasLista = ventaArticulos.split(",");
+		
+
+		int registrosInsertados = 0;
+		insertarVenta(idVenta, articulos, cantidades);
+		
+		
+		try {
+			stmt = conn.prepareStatement(Constantes.DAO_INSERTAR_DETALLE_VENTA);
+
+			for (int i = 0; i < articulosLista.length; i++) {
+				
+				stmt.setString(1, idVenta);
+				stmt.setString(2, articulosLista[i]);
+				stmt.setString(3, cantidadLista[i]);
+				stmt.setString(4, idEmpleado);
+				stmt.setString(5, idCliente);
+				stmt.setString(6, ventasLista[i]);
+				registrosInsertados += stmt.executeUpdate();
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			conn.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+		System.out.println("Registros insertados: " + registrosInsertados);
+	}
+
+}
