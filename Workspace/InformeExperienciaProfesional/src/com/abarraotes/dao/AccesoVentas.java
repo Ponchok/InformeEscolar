@@ -61,7 +61,7 @@ public class AccesoVentas extends AccesoBaseDatos {
 	 * @param idEmpleado
 	 * @param idCliente
 	 */
-	public void insertDetalleVenta(String articulos, String cantidades, String idEmpleado, String idCliente, String ventaArticulos) {
+	public void insertDetalleVenta(String articulos, String cantidades, String idEmpleado, String idCliente) {
 
 		GeneradorID id = new GeneradorID();
 		String idVenta = id.generarIDVenta();
@@ -74,6 +74,11 @@ public class AccesoVentas extends AccesoBaseDatos {
 		// El idCliente sacarlo luego del request
 		idCliente = "1";
 	
+		VentaArticulosGenerador vag = new VentaArticulosGenerador();
+		String ventaArticulosRAW = vag.generarVentaArticulo(articulos, cantidades);
+		String ventaArticulos = ventaArticulosRAW.substring(0, (ventaArticulosRAW.length() - 1));
+		
+		
 		String [] ventasLista = ventaArticulos.split(",");
 		
 

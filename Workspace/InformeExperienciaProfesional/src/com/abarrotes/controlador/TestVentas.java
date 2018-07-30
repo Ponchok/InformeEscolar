@@ -51,13 +51,11 @@ public class TestVentas extends HttpServlet {
 		String cantidades = cantidadesRAW.substring(0, (cantidadesRAW.length() - 1));
 		
 		
-		VentaArticulosGenerador vag = new VentaArticulosGenerador();
-		String ventaArticulosRAW = vag.generarVentaArticulo(articulos, cantidades);
-		String ventaArticulos = ventaArticulosRAW.substring(0, (ventaArticulosRAW.length() - 1));
+		//Faltaria obtener empleado y cliente
 		
 		
 		AccesoVentas ac = new AccesoVentas();
-		ac.insertDetalleVenta(articulos, cantidades, "1", "1", ventaArticulos);
+		ac.insertDetalleVenta(articulos, cantidades, "1", "1");
 		
 		
 		
