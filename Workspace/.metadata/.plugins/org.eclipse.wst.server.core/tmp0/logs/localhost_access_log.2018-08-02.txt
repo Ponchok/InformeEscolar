@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [02/Aug/2018:00:43:38 -0500] "POST /superabarrotes/AdminControler HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [02/Aug/2018:00:43:38 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 37827
+0:0:0:0:0:0:0:1 - - [02/Aug/2018:00:43:58 -0500] "POST /superabarrotes/detalleVenta.jsp HTTP/1.1" 200 8952
+0:0:0:0:0:0:0:1 - - [02/Aug/2018:00:44:40 -0500] "POST /superabarrotes/TestVentas HTTP/1.1" 200 -
