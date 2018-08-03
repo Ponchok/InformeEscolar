@@ -19,4 +19,6 @@ public class Constantes {
 	public static final String DAO_INSERTAR_DETALLE_VENTA = "INSERT INTO SandBoxAbarrote.detalleventa (idVenta, idArticulo, cantidad, idEmpleado, idCliente, ventaTotalArticulo) VALUES (?,?,?,?,?,?);";
 	public static final String DAO_SELECCION_PRECIOS_ARTICULOS_1 = "select articulo.precio from articulo where articulo.idProducto in (";
 	public static final String DAO_SELECCION_PRECIOS_ARTICULOS_2 = ");";
+	public static final String DAO_MUESTRA_VENTA_ARTICULOS = "select idVenta, articulo.nombre, ventaTotalArticulo from detalleventa  left join articulo on detalleventa.idArticulo = articulo.idProducto where idVenta = ? order by idVenta desc;";
+	public static final String DAO_OBTENER_SUMA_TOTAL_VENTA = "select sum(ventaTotalArticulo) from detalleventa where idVenta = ?;";
 }

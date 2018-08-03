@@ -142,7 +142,7 @@ td {
 				<tr bgcolor="#DEB887">
 					<td><%=rs.getString("Nombre")%></td>
 					<td><%=rs.getString("Descripcion")%></td>
-					<td id="precio"><%=rs.getInt("Precio")%></td>
+					<td id="precio">$<%=rs.getInt("Precio")%></td>
 					<td><input type="number"  min="1" max="99" onchange="obtenerCantidad()"  name="cantidad"></td>
 				</tr>
 

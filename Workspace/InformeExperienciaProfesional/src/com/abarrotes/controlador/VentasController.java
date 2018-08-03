@@ -53,7 +53,10 @@ public class VentasController extends HttpServlet {
 		AccesoVentas ac = new AccesoVentas();
 		ac.insertDetalleVenta(articulos, cantidades, "1", "1");
 		
-		//response.sendRedirect("ventaRealizada.jsp");
+		request.setAttribute("VentaTotal", ac.obtenerVentaTotal());
+		request.setAttribute("IdVenta", ac.getIdVenta());
+	    request.getRequestDispatcher("ventaRealizada.jsp").forward(request, response);
+
 		
 		
 		
