@@ -63,7 +63,7 @@ td {
 
 	function confirmar(form) {
 		
-		if(confirm("Estas seguro de tu seleccion")){
+		if(!confirm("Estas seguro de tu seleccion")){
 			alert("aceptado");
 			form.submit();
 		}
@@ -147,7 +147,7 @@ td {
 					<td><%=rs.getString("Nombre")%></td>
 					<td><%=rs.getString("Descripcion")%></td>
 					<td id="precio"><%=rs.getInt("Precio")%></td>
-					<td><input type="number"  min="1" max="99" onchange="obtenerCantidad()"  name="cantidad"></td>
+					<td><input type="number"  min="1" max="99" onchange="obtenerCantidad()" name="cantidad">1</td>
 				</tr>
 
 				<%
@@ -167,7 +167,7 @@ td {
 			</button>
 			<input type="hidden" id="seleccionLista" name="seleccionLista" value="<%=request.getParameter("seleccionLista")%>"></input> 
 			<input type="hidden" id="cantidadesLista" name="cantidadesLista" value=""></input>
-			<button type="button" id="Seleccion" class="btn btn-primary btn-lg" onclick="confirmar(this.form)">Continuar</button>
+			<button type="submit" id="Seleccion" class="btn btn-primary btn-lg" onclick="confirmar(this.form)">Continuar</button>
 		</form>
 	</div>
 	<!-- Ejemplo de muestra de Tabla articulos -->

@@ -61,7 +61,7 @@ td {
 		document.getElementById("cantidadesLista").value = cantidades;
 	}
 
-	function confirmar(form) {
+	function confirmar() {
 		
 		if(confirm("Estas seguro de tu seleccion")){
 			alert("aceptado");
@@ -167,7 +167,7 @@ td {
 			</button>
 			<input type="hidden" id="seleccionLista" name="seleccionLista" value="<%=request.getParameter("seleccionLista")%>"></input> 
 			<input type="hidden" id="cantidadesLista" name="cantidadesLista" value=""></input>
-			<button type="button" id="Seleccion" class="btn btn-primary btn-lg" onclick="confirmar(this.form)">Continuar</button>
+			<button type="submit" id="Seleccion" class="btn btn-primary btn-lg" onsubmit="confirmar()">Continuar</button>
 		</form>
 	</div>
 	<!-- Ejemplo de muestra de Tabla articulos -->

@@ -48,21 +48,33 @@ td {
 	background-color: brown;
 	color: #FFF;
 }
-
 </style>
 
 <script type="text/javascript">
+	function obtenerCantidad() {
+		var contadoresMarcados = document.getElementsByName("cantidad");
+		var cantidades = "";
+		for (i = 0; i < contadoresMarcados.length; i++) {
 
-function obtenerCantidad() {
-	var contadoresMarcados = document.getElementsByName("cantidad");
-	var cantidades = "";
-	for (i = 0; i < contadoresMarcados.length; i++){
-		
-		cantidades += contadoresMarcados[i].value + ",";
+			cantidades += contadoresMarcados[i].value + ",";
+		}
+		document.getElementById("cantidadesLista").value = cantidades;
 	}
-	document.getElementById("cantidadesLista").value = cantidades;
-}
 
+	function confirmar(form) {
+		
+		if(confirm("Estas seguro de tu seleccion")){
+			alert("aceptado");
+			form.submit();
+		}
+		else{
+			alert("cancelado");
+		}
+			
+	}
+	
+	
+	
 </script>
 
 </head>
@@ -102,8 +114,9 @@ function obtenerCantidad() {
 
 	<!-- Ejemplo de muestra de Tabla articulos -->
 	<div class="text-center" id="divarticulos">
-		<p style="font-size: large; font-weight: bold;">Por favor confirma tu seleccion y la cantidad</p>
-		<form action="/superabarrotes/TestVentas" method="post">
+		<p style="font-size: large; font-weight: bold;">Por favor confirma
+			tu seleccion y la cantidad</p>
+		<form action="/superabarrotes/TestVentas" method="post" name="confirmaVenta">
 			<table cellpadding="5" cellspacing="5" border="1" id="tbodyarticulos"
 				align="center">
 				<tr bgcolor="#A52A2A">
@@ -122,9 +135,9 @@ function obtenerCantidad() {
 						conn = acceso.obtenerConexion();
 						stm = conn.createStatement();
 						String articulos = request.getParameter("seleccionLista");
-						articulos = articulos.substring(0, articulos.length()-1);
-						String query = (Constantes.DAO_TABLA_SELECCION_ARTICULOS_1 + articulos + Constantes.DAO_TABLA_SELECCION_ARTICULOS_2);
-						System.out.print(query);
+						articulos = articulos.substring(0, articulos.length() - 1);
+						String query = (Constantes.DAO_TABLA_SELECCION_ARTICULOS_1 + articulos
+								+ Constantes.DAO_TABLA_SELECCION_ARTICULOS_2);
 						rs = stm.executeQuery(query);
 						while (rs.next()) {
 				%>
@@ -134,7 +147,7 @@ function obtenerCantidad() {
 					<td><%=rs.getString("Nombre")%></td>
 					<td><%=rs.getString("Descripcion")%></td>
 					<td id="precio"><%=rs.getInt("Precio")%></td>
-					<td><input type="number" min="1" max="99" onchange="obtenerCantidad()" name="cantidad"></td>
+					<td><input type="number"  min="1" max="99" onchange="obtenerCantidad()"  name="cantidad"></td>
 				</tr>
 
 				<%
@@ -146,12 +159,15 @@ function obtenerCantidad() {
 						e.printStackTrace();
 					}
 				%>
-				
+
 			</table>
-			<button id="regresar" class="btn btn-primary btn-lg"><a href="http://localhost:8080/superabarrotes/ventas.jsp"> Regresar</a></button>
-			<input type="hidden" id="seleccionLista" name="seleccionLista" value="<%=request.getParameter("seleccionLista")%>"></input>
+			<button id="regresar" class="btn btn-primary btn-lg">
+				<a href="http://localhost:8080/superabarrotes/ventas.jsp">
+					Regresar</a>
+			</button>
+			<input type="hidden" id="seleccionLista" name="seleccionLista" value="<%=request.getParameter("seleccionLista")%>"></input> 
 			<input type="hidden" id="cantidadesLista" name="cantidadesLista" value=""></input>
-			<button type="submit" id="Seleccion" class="btn btn-primary btn-lg">Continuar</button>
+			<button type="button" id="Seleccion" class="btn btn-primary btn-lg" onclick="confirmar(this.form)">Continuar</button>
 		</form>
 	</div>
 	<!-- Ejemplo de muestra de Tabla articulos -->

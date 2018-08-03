@@ -61,14 +61,13 @@ td {
 		document.getElementById("cantidadesLista").value = cantidades;
 	}
 
-	function confirmar(form) {
-		
-		if(confirm("Estas seguro de tu seleccion")){
-			alert("aceptado");
-			form.submit();
+	function confirmar() {
+		var check = confirm("Estas seguro de tu seleccion");
+		if(check == true){
+			document.confirmaVenta.submit();
 		}
 		else{
-			alert("cancelado");
+			
 		}
 			
 	}
@@ -147,7 +146,8 @@ td {
 					<td><%=rs.getString("Nombre")%></td>
 					<td><%=rs.getString("Descripcion")%></td>
 					<td id="precio"><%=rs.getInt("Precio")%></td>
-					<td><input type="number"  min="1" max="99" onchange="obtenerCantidad()"  name="cantidad"></td>
+					<td><input type="number" min="1" max="99"
+						onchange="obtenerCantidad()" name="cantidad"></td>
 				</tr>
 
 				<%
@@ -165,9 +165,11 @@ td {
 				<a href="http://localhost:8080/superabarrotes/ventas.jsp">
 					Regresar</a>
 			</button>
-			<input type="hidden" id="seleccionLista" name="seleccionLista" value="<%=request.getParameter("seleccionLista")%>"></input> 
-			<input type="hidden" id="cantidadesLista" name="cantidadesLista" value=""></input>
-			<button type="button" id="Seleccion" class="btn btn-primary btn-lg" onclick="confirmar(this.form)">Continuar</button>
+			<input type="hidden" id="seleccionLista" name="seleccionLista"
+				value="<%=request.getParameter("seleccionLista")%>"></input> <input
+				type="hidden" id="cantidadesLista" name="cantidadesLista" value=""></input>
+			<button type="submit" id="Seleccion" class="btn btn-primary btn-lg"
+				onclick="confirmar()">Continuar</button>
 		</form>
 	</div>
 	<!-- Ejemplo de muestra de Tabla articulos -->
