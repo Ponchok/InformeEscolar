@@ -21,7 +21,6 @@ public class AdminControler extends HttpServlet {
 	 */
 	public AdminControler() {
 		super();
-		System.out.println("SERVLET");
 	}
 
 	/**

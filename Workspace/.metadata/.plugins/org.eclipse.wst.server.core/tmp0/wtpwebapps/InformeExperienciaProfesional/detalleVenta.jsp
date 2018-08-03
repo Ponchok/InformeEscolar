@@ -112,7 +112,7 @@ td {
 	<div class="text-center" id="divarticulos">
 		<p style="font-size: large; font-weight: bold;">Por favor confirma
 			tu seleccion y la cantidad</p>
-		<form action="/superabarrotes/TestVentas" method="post" name="confirmaVenta">
+		<form action="/superabarrotes/VentasController" method="post" name="confirmaVenta">
 			<table cellpadding="5" cellspacing="5" border="1" id="tbodyarticulos"
 				align="center">
 				<tr bgcolor="#A52A2A">
@@ -158,8 +158,7 @@ td {
 
 			</table>
 			<button id="regresar" class="btn btn-primary btn-lg">
-				<a href="http://localhost:8080/superabarrotes/ventas.jsp">
-					Regresar</a>
+				<a href="http://localhost:8080/superabarrotes/ventas.jsp">Regresar</a>
 			</button>
 			<input type="hidden" id="seleccionLista" name="seleccionLista" value="<%=request.getParameter("seleccionLista")%>"></input> 
 			<input type="hidden" id="cantidadesLista" name="cantidadesLista" value=""></input>
