@@ -25,8 +25,7 @@ public class VentaArticulosGenerador extends AccesoBaseDatos {
 		try {
 			conn = obtenerConexion();
 			stm = conn.createStatement();
-			String query = Constantes.DAO_SELECCION_PRECIOS_ARTICULOS_1 + articulos
-					+ Constantes.DAO_SELECCION_PRECIOS_ARTICULOS_2;
+			String query = Constantes.DAO_SELECCION_PRECIOS_ARTICULOS_1 + articulos + Constantes.DAO_SELECCION_PRECIOS_ARTICULOS_2;
 			rs = stm.executeQuery(query);
 
 			while (rs.next()) {

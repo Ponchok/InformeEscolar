@@ -17,9 +17,11 @@ public class AccesoVentas extends AccesoBaseDatos {
 
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
+	private String idVenta = "";
 	
 	public AccesoVentas(){
 		conn = obtenerConexion();
+		idVenta = new GeneradorID().generarIDVenta();
 	}
 
 	
@@ -29,7 +31,7 @@ public class AccesoVentas extends AccesoBaseDatos {
 	 * Ejemplo Quey Insert a tabla ventas INSERT INTO SandBoxAbarrote.ventas
 	 * (idVenta, fecha) VALUES (31, 2018-07-17,495);
 	 */
-	public void insertarVenta(String idVenta, String articulos, String cantidades ) {
+	private  void insertarVenta(String idVenta, String articulos, String cantidades ) {
 
 		VentaArticulosGenerador vag = new VentaArticulosGenerador();
 		String fechaVenta = FechaGenerador.fechaBD(new Date());
@@ -61,10 +63,7 @@ public class AccesoVentas extends AccesoBaseDatos {
 	 * @param idEmpleado
 	 * @param idCliente
 	 */
-	public void insertDetalleVenta(String articulos, String cantidades, String idEmpleado, String idCliente, String ventaArticulos) {
-
-		GeneradorID id = new GeneradorID();
-		String idVenta = id.generarIDVenta();
+	public void insertDetalleVenta(String articulos, String cantidades, String idEmpleado, String idCliente) {
 		
 		String [] articulosLista = articulos.split(",");
 		String [] cantidadLista = cantidades.split(",");
@@ -74,6 +73,11 @@ public class AccesoVentas extends AccesoBaseDatos {
 		// El idCliente sacarlo luego del request
 		idCliente = "1";
 	
+		VentaArticulosGenerador vag = new VentaArticulosGenerador();
+		String ventaArticulosRAW = vag.generarVentaArticulo(articulos, cantidades);
+		String ventaArticulos = ventaArticulosRAW.substring(0, (ventaArticulosRAW.length() - 1));
+		
+		
 		String [] ventasLista = ventaArticulos.split(",");
 		
 
@@ -108,5 +112,8 @@ public class AccesoVentas extends AccesoBaseDatos {
 	
 		System.out.println("Registros insertados: " + registrosInsertados);
 	}
+	
+	
+	
 
 }

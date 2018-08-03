@@ -6,4 +6,7 @@
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="com.abarraotes.dao.AccesoSistema"/>
+<fullyQualifiedTypeName name="com.abarraotes.dao.AccesoVentas"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="com.abarrotes.utilidades.VentaArticulosGenerador"/>
 </qualifiedTypeNameHistroy>
