@@ -64,11 +64,7 @@ td {
 	function confirmar(form) {
 		
 		if(confirm("Estas seguro de tu seleccion")){
-			alert("aceptado");
 			form.submit();
-		}
-		else{
-			alert("cancelado");
 		}
 			
 	}

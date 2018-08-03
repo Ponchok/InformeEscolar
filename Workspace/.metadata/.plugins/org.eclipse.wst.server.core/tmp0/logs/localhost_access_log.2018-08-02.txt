@@ -104,3 +104,6 @@
 0:0:0:0:0:0:0:1 - - [02/Aug/2018:21:45:07 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 37827
 0:0:0:0:0:0:0:1 - - [02/Aug/2018:21:45:09 -0500] "POST /superabarrotes/detalleVenta.jsp HTTP/1.1" 200 5863
 0:0:0:0:0:0:0:1 - - [02/Aug/2018:21:45:16 -0500] "POST /superabarrotes/TestVentas HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [02/Aug/2018:21:46:04 -0500] "GET /superabarrotes/ventas.jsp HTTP/1.1" 200 37827
+0:0:0:0:0:0:0:1 - - [02/Aug/2018:21:46:08 -0500] "POST /superabarrotes/detalleVenta.jsp HTTP/1.1" 200 5806
+0:0:0:0:0:0:0:1 - - [02/Aug/2018:21:46:14 -0500] "POST /superabarrotes/TestVentas HTTP/1.1" 200 -
