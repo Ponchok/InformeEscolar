@@ -3,7 +3,7 @@ package com.abarrotes.utilidades;
  * Clase utilizada para declarar constantes usadas en el proyecto
  *
  */
-public class Constantes {
+public interface Constantes {
 
 	public static final String CONEXION_BD = "jdbc:mysql://localhost/SandBoxAbarrote?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	public static final String USUARIO_MYSQL = "root";

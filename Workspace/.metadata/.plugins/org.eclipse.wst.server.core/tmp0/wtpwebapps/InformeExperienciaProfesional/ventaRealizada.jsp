@@ -102,9 +102,20 @@
 				<td><b>Numero de Venta: <%=idVenta %></b></td>
 				<td align="center"> $ <%=ventaTotal %> </td>
 			</tfoot>
-
 		</table>
 	</div>
+	
+	<div align="center">
+	<br>
+	<button>
+	 <a style="color: blue; font-weight: bold;" href="http://localhost:8080/superabarrotes/ventas.jsp">Nueva Venta</a>
+	</button>
+	<button>
+		<a style="color: red; font-weight: bold;" href="index.html">Terminar y Salir</a>
+	</button>
+	</div>
+	
+	
 	<br>
 	<!-- Ejemplo de muestra de Tabla articulos -->
 

@@ -9,4 +9,7 @@
 <fullyQualifiedTypeName name="com.abarraotes.dao.AccesoVentas"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="com.abarrotes.utilidades.VentaArticulosGenerador"/>
+<fullyQualifiedTypeName name="com.abarrotes.utilidades.Constantes"/>
+<fullyQualifiedTypeName name="com.mysql.cj.protocol.Resultset"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 </qualifiedTypeNameHistroy>

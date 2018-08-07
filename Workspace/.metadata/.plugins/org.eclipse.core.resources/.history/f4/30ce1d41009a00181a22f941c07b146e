@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.abarrotes.utilidades.AccesoBaseDatos" project="InformeExperienciaProfesional" 
+    file="/InformeExperienciaProfesional/src/com/abarrotes/utilidades/AccesoBaseDatos.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="191" width="195" x="1975" y="-48"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.abarrotes.utilidades.GeneradorID" project="InformeExperienciaProfesional" 
+    file="/InformeExperienciaProfesional/src/com/abarrotes/utilidades/GeneradorID.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="156" x="1487" y="363"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.abarrotes.controlador.VentasController" 
+    project="InformeExperienciaProfesional" 
+    file="/InformeExperienciaProfesional/src/com/abarrotes/controlador/VentasController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="521" y="42"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.abarrotes.controlador.AdminControler" project="InformeExperienciaProfesional" 
+    file="/InformeExperienciaProfesional/src/com/abarrotes/controlador/AdminControler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="520" y="196"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.abarrotes.utilidades.ConexionBD" project="InformeExperienciaProfesional" 
+    file="/InformeExperienciaProfesional/src/com/abarrotes/utilidades/ConexionBD.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="107" y="395"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.abarrotes.utilidades.VentaArticulosGenerador" 
+    project="InformeExperienciaProfesional" 
+    file="/InformeExperienciaProfesional/src/com/abarrotes/utilidades/VentaArticulosGenerador.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="119" width="252" x="1683" y="363"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.abarraotes.dao.AccesoSistema" project="InformeExperienciaProfesional" 
+    file="/InformeExperienciaProfesional/src/com/abarraotes/dao/AccesoSistema.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="198" x="1975" y="363"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.abarraotes.dao.AccesoVentas" project="InformeExperienciaProfesional" 
+    file="/InformeExperienciaProfesional/src/com/abarraotes/dao/AccesoVentas.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="227" width="298" x="2213" y="363"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.abarrotes.utilidades.FechaGenerador" project="InformeExperienciaProfesional" 
+    file="/InformeExperienciaProfesional/src/com/abarrotes/utilidades/FechaGenerador.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="142" x="1793" y="-48"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="10">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="11">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="12">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="13">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
