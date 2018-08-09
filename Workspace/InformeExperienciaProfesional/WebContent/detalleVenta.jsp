@@ -94,8 +94,8 @@ td {
 				<div class="navbar-collapse collapse">
 					<div class="menu">
 						<ul class="nav nav-tabs" role="tablist">
-							<li role="presentation"><a href="index.html" class="active">Soporte</a></li>
-							<li role="presentation"><a href="index.html">Información</a></li>
+							<li role="presentation"><a href="soporte.html">Soporte</a></li>
+							<li role="presentation"><a href="informacion.html">Información</a></li>	
 							<li role="presentation"><a href="index.html">Salir</a></li>
 						</ul>
 					</div>
@@ -142,7 +142,7 @@ td {
 				<tr bgcolor="#DEB887">
 					<td><%=rs.getString("Nombre")%></td>
 					<td><%=rs.getString("Descripcion")%></td>
-					<td id="precio"><%=rs.getInt("Precio")%></td>
+					<td id="precio">$<%=rs.getInt("Precio")%></td>
 					<td><input type="number"  min="1" max="99" onchange="obtenerCantidad()"  name="cantidad"></td>
 				</tr>
 

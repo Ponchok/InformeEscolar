@@ -138,8 +138,8 @@ td {
 				<div class="navbar-collapse collapse">
 					<div class="menu">
 						<ul class="nav nav-tabs" role="tablist">
-							<li role="presentation"><a href="index.html" class="active">Soporte</a></li>
-							<li role="presentation"><a href="index.html">Información</a></li>
+							<li role="presentation"><a href="soporte.html">Soporte</a></li>
+							<li role="presentation"><a href="informacion.html">Información</a></li>	
 							<li role="presentation"><a href="index.html">Salir</a></li>
 						</ul>
 					</div>
@@ -158,13 +158,10 @@ td {
 	<!-- Ejemplo de muestra de Tabla articulos -->
 	<div class="text-center" id="divarticulos">
 
-		<input type="text" id="busqueda1" onkeyup="busqueda1()"
-			placeholder="Busca Nombre de Articulo o Descripción..."
-			title="Haz click y busca por nombre o descripción"> <br>
-		<input type="text" id="busqueda2" onkeyup="busqueda2()"
-			placeholder="Busca por Categoria de Articulo ..."
-			title="Haz click y busca por categorias"> <br>
+		<input type="text" id="busqueda1" onkeyup="busqueda1()" placeholder="Busca Nombre de Articulo o Descripción..." title="Haz click y busca por nombre o descripción"> <br>
+		<input type="text" id="busqueda2" onkeyup="busqueda2()" placeholder="Busca por Categoria de Articulo ..." title="Haz click y busca por categorias"> <br>
 		<button onclick="limpia()">Limpia Busquedas</button>
+		
 		<form action="/superabarrotes/detalleVenta.jsp" method="post">
 			<table cellpadding="5" cellspacing="5" border="1" id="tbodyarticulos"
 				align="center">

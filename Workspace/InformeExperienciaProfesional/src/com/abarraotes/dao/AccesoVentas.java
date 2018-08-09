@@ -3,6 +3,7 @@ package com.abarraotes.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 import java.util.Date;
 import com.abarrotes.utilidades.AccesoBaseDatos;
 import com.abarrotes.utilidades.Constantes;
@@ -18,6 +19,7 @@ public class AccesoVentas extends AccesoBaseDatos {
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
 	private String idVenta = "";
+	private String ventatotal = "";
 	
 	public AccesoVentas(){
 		conn = obtenerConexion();
@@ -99,6 +101,15 @@ public class AccesoVentas extends AccesoBaseDatos {
 				registrosInsertados += stmt.executeUpdate();
 			}
 			
+			stmt = conn.prepareStatement(Constantes.DAO_OBTENER_SUMA_TOTAL_VENTA);
+			stmt.setString(1, idVenta);
+			ResultSet rs2 = stmt.executeQuery();
+			while (rs2.next()) {
+				ventatotal = rs2.getString("sum(ventaTotalArticulo)");
+				
+			}
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -113,6 +124,22 @@ public class AccesoVentas extends AccesoBaseDatos {
 		System.out.println("Registros insertados: " + registrosInsertados);
 	}
 	
+	
+	
+	
+	/**
+	 * Este Metodo nos regresa el ID de venta que se utilizara en el detalle de las ventas.
+	 * @return
+	 */
+	public String getIdVenta(){
+		return idVenta;
+	}
+	
+	
+	
+	public String obtenerVentaTotal(){
+		return ventatotal;
+	}
 	
 	
 

@@ -24,8 +24,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
- <body>
+<body>
 	<header id="header">
 		<nav class="navbar navbar-default navbar-static-top" role="banner">
 			<div class="container">
@@ -43,8 +42,8 @@
 				<div class="navbar-collapse collapse">
 					<div class="menu">
 						<ul class="nav nav-tabs" role="tablist">
-							<li role="presentation"><a href="index.html" class="active">Soporte</a></li>
-							<li role="presentation"><a href="index.html">Información</a></li>
+							<li role="presentation"><a href="soporte.html">Soporte</a></li>
+							<li role="presentation"><a href="informacion.html">Información</a></li>	
 							<li role="presentation"><a href="index.html">Salir</a></li>
 						</ul>
 					</div>
@@ -55,18 +54,81 @@
 		<!--/nav-->
 	</header>
 	<!--/header-->
+
+	<div>
+		<table cellpadding="5" cellspacing="5" border="1" id="tbodyarticulos"
+			align="center">
+			<tr bgcolor="#A52A2A">
+				<th><b>Articulo</b></th>
+				<th><b>Venta Total Articulo</b></th>
+			</tr>
+
+			<%
+				try {
+					Connection conn = null;
+					PreparedStatement pstm = null;
+					ResultSet rs = null;
+					String idVenta = (String) request.getAttribute("IdVenta");
+					AccesoBaseDatos acceso = new AccesoBaseDatos();
+					conn = acceso.obtenerConexion();
+					String query = Constantes.DAO_MUESTRA_VENTA_ARTICULOS;
+					pstm = conn.prepareStatement(query);
+					pstm.setString(1, idVenta);
+					rs = pstm.executeQuery();
+
+					while (rs.next()) {   
+			%>
+
+
+			<tr bgcolor="#DEB887">
+				<td id="tdarticulos" align="center"><%=rs.getString("nombre")%></td>
+				<td id="tdarticulos" align="center">$ <%=rs.getString("ventaTotalArticulo")%></td>
+			</tr>
+
+			<%
+				}
+					conn.close();
+					pstm.close();
+					rs.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			%>
+			
+			<% String idVenta = (String) request.getAttribute("IdVenta"); %>
+			<% String ventaTotal = (String) request.getAttribute("VentaTotal"); %>
+			
+			<tfoot style="color: olive;">
+				<td><b>Numero de Venta: <%=idVenta %></b></td>
+				<td align="center"> $ <%=ventaTotal %> </td>
+			</tfoot>
+		</table>
+	</div>
+	
+	<div align="center">
+	<br>
+	<button>
+	 <a style="color: blue; font-weight: bold;" href="http://localhost:8080/superabarrotes/ventas.jsp">Nueva Venta</a>
+	</button>
+	<button>
+		<a style="color: red; font-weight: bold;" href="index.html">Terminar y Salir</a>
+	</button>
+	</div>
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-<footer>
+	<br>
+	<!-- Ejemplo de muestra de Tabla articulos -->
+
+
+
+
+
+
+
+
+
+
+	<footer>
 		<div class="container">
 			<div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms"
 				data-wow-delay="300ms">
@@ -113,5 +175,4 @@
 		wow = new WOW({}).init();
 	</script>
 </body>
-</html>	   
-    
+</html>
